@@ -10,7 +10,6 @@ export class SidenavService {
   constructor() { }
 
   public toggle() {
-    console.log("toggle");
     return this.sideNavToggleSubject.next(null);
   } 
 }

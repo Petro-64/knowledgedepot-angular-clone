@@ -8,10 +8,15 @@ import { MatDrawer } from '@angular/material/sidenav';
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent implements OnInit  {
-  //@ViewChild('drawer') public drawer: MatDrawer;
+  @ViewChild('drawer', { static: true }) public drawer!: MatDrawer;
+
+  constructor(private sideNavService: SidenavService) { 
+  }
 
   ngOnInit() { 
-
+    this.sideNavService.sideNavToggleSubject.subscribe(()=> {
+      this.drawer.toggle();
+    });
    } 
 
 }
