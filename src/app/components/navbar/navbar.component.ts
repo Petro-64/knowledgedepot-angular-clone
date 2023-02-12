@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SidenavService } from '../../services/sidenav.service' 
 
 @Component({
   selector: 'app-navbar',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   showFiller = false;
+
+  constructor(private sideNavService: SidenavService) {
+
+  }
+
+  clickMenu() { 
+    this.sideNavService.toggle();
+  }
 }

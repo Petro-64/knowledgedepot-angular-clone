@@ -1,13 +1,10 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-/**
- * @title Autosize sidenav
- */
 @Component({
-  selector: 'sidenav',
-  templateUrl: 'sidenav.component.html',
-  styleUrls: ['sidenav.component.css'],
+  selector: 'app-sidenav',
+  templateUrl: './sidenav.component.html',
+  styleUrls: ['./sidenav.component.css']
 })
-export class Sidenav {
-  showFiller = false;
+export class SidenavComponent {
+
 }

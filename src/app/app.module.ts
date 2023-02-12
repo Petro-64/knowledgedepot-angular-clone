@@ -6,12 +6,13 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialExampleModule } from './material.module';
-import { Sidenav } from './components/sidenav/sidenav.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
+    SidenavComponent,
     
   ],
   imports: [

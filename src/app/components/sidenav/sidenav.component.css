@@ -1,0 +1,15 @@
+.my-container {
+    width: 100%;
+    height: calc(100vh - 75px);
+}
+.my-drawer-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.my-drawer {
+    padding: 30px;
+    background-color: burlywood;
+}
+
