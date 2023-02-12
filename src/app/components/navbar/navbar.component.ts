@@ -7,8 +7,6 @@ import { SidenavService } from '../../services/sidenav.service'
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  showFiller = false;
-
   constructor(private sideNavService: SidenavService) {
 
   }

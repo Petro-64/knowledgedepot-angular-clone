@@ -7,6 +7,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialExampleModule } from './material.module';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialExampleModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
