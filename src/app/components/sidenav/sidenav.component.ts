@@ -13,12 +13,15 @@ export class SidenavComponent implements OnInit  {
   constructor(private sideNavService: SidenavService) { 
   }
 
-  typesOfLaptop: string[] = ['Apple', 'HP', 'Lenovo', 'Dell', 'Acer','Asus'];
 
   ngOnInit() { 
     this.sideNavService.sideNavToggleSubject.subscribe(()=> {
       this.drawer.toggle();
     });
+
+    this.drawer.close();
+
    } 
+
 
 }
