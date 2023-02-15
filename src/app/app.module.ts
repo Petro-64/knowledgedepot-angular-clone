@@ -11,6 +11,10 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { TestsComponent } from './components/tests/tests.component';
 import { ResultsComponent } from './components/results/results.component';
+import { SubjectsComponent } from './components/subjects/subjects.component';
+import { StoreModule } from '@ngrx/store';
+import { subjectsReducer }  from './common/reducers/subjects.reducer';
+import { Subject } from './common/models/subject.model';
 
 @NgModule({
   declarations: [
@@ -19,6 +23,7 @@ import { ResultsComponent } from './components/results/results.component';
     SidenavComponent,
     TestsComponent,
     ResultsComponent,
+    SubjectsComponent,
     
   ],
   imports: [
@@ -26,7 +31,8 @@ import { ResultsComponent } from './components/results/results.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialExampleModule,
-    MatExpansionModule
+    MatExpansionModule,
+    StoreModule.forRoot({subjectRed: subjectsReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
