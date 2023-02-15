@@ -23,5 +23,19 @@ export class SidenavComponent implements OnInit  {
 
    } 
 
+   close(){
+    this.drawer.close();
+   }
+
+   items = ['Item 1', 'Item 2'];
+   items1 = [{name: 'Test', content: [
+    {icon: "question_answer", linkTo: '/tests', word: 'Test'},
+    {icon: "library_books", linkTo: '/results', word: 'Results'},
+   ]}, {name: 'Account', content: [
+    {icon: "assignment", linkTo: '/results', word: 'Add questions'},
+    {icon: "account_box", linkTo: '/tests', word: 'My mistakes'}
+
+   ]}];
+   expandedIndex = 0;
 
 }
