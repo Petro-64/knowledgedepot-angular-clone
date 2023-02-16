@@ -15,6 +15,7 @@ import { SubjectsComponent } from './components/subjects/subjects.component';
 import { StoreModule } from '@ngrx/store';
 import { subjectsReducer }  from './common/reducers/subjects.reducer';
 import { Subject } from './common/models/subject.model';
+import { reducers } from './common/reducers'
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { Subject } from './common/models/subject.model';
     BrowserAnimationsModule,
     MaterialExampleModule,
     MatExpansionModule,
-    StoreModule.forRoot({subjectRed: subjectsReducer})
+    StoreModule.forRoot(reducers)
   ],
   providers: [],
   bootstrap: [AppComponent]

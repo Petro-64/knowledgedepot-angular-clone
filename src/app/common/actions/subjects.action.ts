@@ -5,7 +5,6 @@ export const GET_SUBJECTS ='GET_SUBJECTS';
 
 export class GetSubjects implements Action {
     readonly type: string =  GET_SUBJECTS;
-    payload: Subject[] | undefined;
-    ///constructor(payload: Subject[]) { }
+    constructor(public payload: Subject[]) { }
 }
 

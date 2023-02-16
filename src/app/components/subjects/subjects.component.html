@@ -1,1 +1,4 @@
 <p>subjects works!</p>
+<div *ngFor="let subject of (subjects | async).subjects">
+    {{ subject.name }}
+</div>

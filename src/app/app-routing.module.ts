@@ -10,6 +10,7 @@ import { SubjectsComponent } from './components/subjects/subjects.component';
 const routes: Routes = [
   { path: 'tests', component: TestsComponent },
   { path: 'results', component: ResultsComponent },
+  { path: 'subjects', component: SubjectsComponent },
   { path: '', component: SubjectsComponent }
 ];
 
