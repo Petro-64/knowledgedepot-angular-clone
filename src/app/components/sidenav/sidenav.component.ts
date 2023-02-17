@@ -30,10 +30,10 @@ export class SidenavComponent implements OnInit  {
    items = ['Item 1', 'Item 2'];
    items1 = [{name: 'Test', content: [
     {icon: "question_answer", linkTo: '/tests', word: 'Test'},
-    {icon: "library_books", linkTo: '/results', word: 'Results'},
+    {icon: "library_books", linkTo: '/subjects', word: 'Subjects'},
    ]}, {name: 'Account', content: [
-    {icon: "assignment", linkTo: '/results', word: 'Add questions'},
-    {icon: "account_box", linkTo: '/tests', word: 'My mistakes'}
+    {icon: "assignment", linkTo: '/results', word: 'Results'},
+    {icon: "account_box", linkTo: '/subjects', word: 'Subjects'}
 
    ]}];
    expandedIndex = 0;

@@ -16,7 +16,7 @@ const hh1: Subject = {
 }
 
 const initialState: SubjectsState = {
-    subjects: [hh, hh1]
+    subjects: []
 }
 
 export function subjectsReducer(state: SubjectsState = initialState, action: SubjectsAct.GetSubjects): SubjectsState {
@@ -25,6 +25,12 @@ export function subjectsReducer(state: SubjectsState = initialState, action: Sub
             return {
                 ...state, 
                 subjects: action.payload
+            };
+
+        case SubjectsAct.ADD_SUBJECTS:    
+            return {
+                ...state, 
+                subjects: [...state.subjects.concat(action.payload)]
             };
         default: 
             return {
