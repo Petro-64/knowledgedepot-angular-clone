@@ -13,11 +13,10 @@ import { TestsComponent } from './components/tests/tests.component';
 import { ResultsComponent } from './components/results/results.component';
 import { SubjectsComponent } from './components/subjects/subjects.component';
 import { StoreModule } from '@ngrx/store';
-import { subjectsReducer }  from './common/reducers/subjects.reducer';
-import { Subject } from './common/models/subject.model';
 import { reducers } from './common/reducers';
 import { HttpClientModule } from "@angular/common/http";
 import { GetSubjectsService } from './common/services/http/getsubjects.service';
+import { LanguageSwitchComponent } from './components/parts/language-switch/language-switch.component';
 
 
 @NgModule({
@@ -28,6 +27,7 @@ import { GetSubjectsService } from './common/services/http/getsubjects.service';
     TestsComponent,
     ResultsComponent,
     SubjectsComponent,
+    LanguageSwitchComponent,
     
   ],
   imports: [
