@@ -7,12 +7,17 @@
     <div class="align-right">
       <app-language-switch></app-language-switch>
     </div>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
+    <button mat-icon-button class="example-icon favorite-icon" [matMenuTriggerFor]="menu" aria-label="Example icon-button with heart icon">
+      <mat-icon>account_circle</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button>
+
+    <mat-menu #menu="matMenu">
+        <dialog-data-example></dialog-data-example>
+
+      <button mat-menu-item>
+        <span>Sign up</span>
+      </button>
+    </mat-menu>
   </mat-toolbar>
   
   

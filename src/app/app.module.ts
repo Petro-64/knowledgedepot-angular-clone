@@ -17,6 +17,7 @@ import { reducers } from './common/reducers';
 import { HttpClientModule } from "@angular/common/http";
 import { GetSubjectsService } from './common/services/http/getsubjects.service';
 import { LanguageSwitchComponent } from './components/parts/language-switch/language-switch.component';
+import {DialogDataExample, DialogDataExampleDialog} from './components/parts/dialog/dialog-data-example';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { LanguageSwitchComponent } from './components/parts/language-switch/lang
     ResultsComponent,
     SubjectsComponent,
     LanguageSwitchComponent,
-    
+    DialogDataExample, 
+    DialogDataExampleDialog
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,6 @@ import { LanguageSwitchComponent } from './components/parts/language-switch/lang
     HttpClientModule
   ],
   providers: [GetSubjectsService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, DialogDataExample]
 })
 export class AppModule { }
