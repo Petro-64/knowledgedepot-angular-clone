@@ -18,6 +18,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { GetSubjectsService } from './common/services/http/getsubjects.service';
 import { LanguageSwitchComponent } from './components/parts/language-switch/language-switch.component';
 import {DialogDataExample, DialogDataExampleDialog} from './components/parts/dialog/dialog-data-example';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatNativeDateModule} from '@angular/material/core';
+import {FormFieldEmailExample} from './components/parts/form-field-email/form-field-email';
+import {FormFieldPasswordExample} from './components/parts/form-field-password/form-field-password';
 
 
 @NgModule({
@@ -30,7 +34,9 @@ import {DialogDataExample, DialogDataExampleDialog} from './components/parts/dia
     SubjectsComponent,
     LanguageSwitchComponent,
     DialogDataExample, 
-    DialogDataExampleDialog
+    DialogDataExampleDialog,
+    FormFieldEmailExample,
+    FormFieldPasswordExample
   ],
   imports: [
     BrowserModule,
@@ -39,9 +45,12 @@ import {DialogDataExample, DialogDataExampleDialog} from './components/parts/dia
     MaterialExampleModule,
     MatExpansionModule,
     StoreModule.forRoot(reducers),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule, 
+    ReactiveFormsModule,
+    MatNativeDateModule,
   ],
   providers: [GetSubjectsService],
-  bootstrap: [AppComponent, DialogDataExample]
+  bootstrap: [AppComponent], 
 })
 export class AppModule { }

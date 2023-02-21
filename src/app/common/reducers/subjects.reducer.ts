@@ -8,7 +8,7 @@ export interface SubjectsState {
 
 const initialState: SubjectsState = {
     subjects: [],
-    names: ''
+    names: '',
 }
 
 export function subjectsReducer(state: SubjectsState = initialState, action: SubjectsAct.GetSubjects): SubjectsState {

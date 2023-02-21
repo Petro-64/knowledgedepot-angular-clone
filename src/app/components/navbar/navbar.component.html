@@ -1,23 +1,22 @@
 <mat-toolbar>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="clickMenu()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span routerLink="/" style="cursor: pointer">Knowledgestore</span>
-    <span class="example-spacer"></span>
-    <div class="align-right">
-      <app-language-switch></app-language-switch>
-    </div>
-    <button mat-icon-button class="example-icon favorite-icon" [matMenuTriggerFor]="menu" aria-label="Example icon-button with heart icon">
-      <mat-icon>account_circle</mat-icon>
-    </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="clickMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span routerLink="/" style="cursor: pointer">Knowledgestore</span>
+  <span class="example-spacer"></span>
+  <div class="align-right">
+    <app-language-switch></app-language-switch>
+  </div>
+  <button mat-icon-button class="example-icon favorite-icon" [matMenuTriggerFor]="menu" aria-label="Example icon-button with heart icon">
+    <mat-icon>account_circle</mat-icon>
+  </button>
 
-    <mat-menu #menu="matMenu">
-        <dialog-data-example></dialog-data-example>
-
-      <button mat-menu-item>
-        <span>Sign up</span>
-      </button>
-    </mat-menu>
-  </mat-toolbar>
+  <mat-menu #menu="matMenu">
+    <dialog-data-example></dialog-data-example>
+    <button mat-menu-item>
+      <span>Sign up</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
   
   
