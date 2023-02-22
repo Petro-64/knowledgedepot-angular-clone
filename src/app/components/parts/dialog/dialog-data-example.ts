@@ -24,6 +24,7 @@ export class DialogDataExample {
   templateUrl: 'dialog-data-example-dialog.html',
 })
 export class DialogDataExampleDialog {
+  email = new FormControl('', [Validators.required, Validators.email]);
   constructor() {}
 }
 
