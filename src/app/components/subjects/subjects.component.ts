@@ -1,9 +1,12 @@
 import { Component, OnInit, OnDestroy  } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Subject } from '../../common/models/subject.model';
 import { GetSubjectsService } from '../../common/services/http/getsubjects.service';
 import { messages } from '../../common/translations/subjects.translations';
+import { selectSubjects } from '../../common/selectors/subjects.selector';
+import { invokeBooksAPI } from '../../common/actions/subjects-for-effects.action'
+
 
 @Component({
   selector: 'app-subjects',
@@ -23,7 +26,10 @@ export class SubjectsComponent implements OnInit, OnDestroy  {
     private store: Store<{subjectsList: {subjects: Subject[]}, globalSettings: {language: string}}>
   ){  }
 
-  ngOnInit(){
+  books$ = this.store.pipe(select(selectSubjects));
+
+
+  ngOnInit(): void{
     this.subjects = this.store.select('subjectsList');
     this.language = this.store.select('globalSettings');
     this.subscr = this.language.subscribe(
@@ -32,6 +38,15 @@ export class SubjectsComponent implements OnInit, OnDestroy  {
       }
     )
     this.getSubjectsService.getSubjects();
+    this.store.dispatch(invokeBooksAPI());
+    this.books$.subscribe(
+      data => {
+        if(data.payload){
+          console.log(data.payload.subjects)
+        }
+     
+      }
+    );
   }
 
   ngOnDestroy() {

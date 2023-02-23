@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,8 +19,12 @@ import { GetSubjectsService } from './common/services/http/getsubjects.service';
 import { LanguageSwitchComponent } from './components/parts/language-switch/language-switch.component';
 import {DialogDataExample, DialogDataExampleDialog} from './components/parts/dialog/dialog-data-example';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatNativeDateModule} from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
 import { LoginFormComponent } from './components/parts/login-form/login-form.component';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { SubjectsEffectTs } from './common/effects/subjects.effect.ts'
+import { subjectsReducer } from './common/reducers/subjects-for-effects.reducer'
 
 
 @NgModule({
@@ -43,10 +47,13 @@ import { LoginFormComponent } from './components/parts/login-form/login-form.com
     MaterialExampleModule,
     MatExpansionModule,
     StoreModule.forRoot(reducers),
+    StoreModule.forFeature('mybooks', subjectsReducer),
     HttpClientModule,
     FormsModule, 
     ReactiveFormsModule,
     MatNativeDateModule,
+    EffectsModule.forRoot([SubjectsEffectTs]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
   providers: [GetSubjectsService],
   bootstrap: [AppComponent], 
