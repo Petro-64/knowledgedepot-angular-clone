@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { messages } from '../../../common/translations/login.translations';
 import { Observable } from 'rxjs';
-
-import { Injectable } from "@angular/core";
 import * as LoginAct from '../../../common/actions/login.action';
 
 @Component({
@@ -12,29 +11,41 @@ import * as LoginAct from '../../../common/actions/login.action';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
+  language: Observable<{language: string}>;
+  subscr: any;// to be able to unsubscribe onDestroy
+  translation: any = {};
+
+
   constructor( 
-    private store: Store<{loginInfo: {email: string}}>
+    private store: Store<{loginInfo: {email: string}, globalSettings: {language: string}}>
   ){  }
 
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required]);
+
+  ngOnInit(){ 
+    this.language = this.store.select('globalSettings');
+    this.subscr = this.language.subscribe(data => {
+      this.translation = data.language == 'en' ? messages.en : messages.ru;
+    }) 
+  }
 
   loginForm = new FormGroup({
     email: this.email,
     password: this.password
   });
 
-  getErrorMessageEmail() {    if (this.email.hasError('required')) {      return 'You must enter a value';    }
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+  getErrorMessageEmail() {    if (this.email.hasError('required')) {      return this.translation.mustEnterValue;    }
+    return this.email.hasError('email') ? this.translation.emailIssue : '';
   }
 
-  getErrorMessagePassword() {    if (this.password.hasError('required')) {      return 'You must enter a value';    }
+  getErrorMessagePassword() {    if (this.password.hasError('required')) {      return this.translation.mustEnterValue;    }
     return '';
   }
 
   onSubmit(){    console.warn(this.loginForm.value);  }
 
-  ngOnInit(){      }
+
 
   emailOnChange(){    this.store.dispatch(new LoginAct.getEmail(this.email.value as string));  }
 
@@ -45,4 +56,8 @@ export class LoginFormComponent implements OnInit {
   updateEmail(value: string): void {    this.email.setValue(value);  }
 
   updatePassword(value: string): void {    this.password.setValue(value);  }
+
+  ngOnDestroy() {
+    this.subscr.unsubscribe()
+  }
 }

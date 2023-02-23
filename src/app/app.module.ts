@@ -20,8 +20,6 @@ import { LanguageSwitchComponent } from './components/parts/language-switch/lang
 import {DialogDataExample, DialogDataExampleDialog} from './components/parts/dialog/dialog-data-example';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatNativeDateModule} from '@angular/material/core';
-import {FormFieldEmailExample} from './components/parts/form-field-email/form-field-email';
-import {FormFieldPasswordExample} from './components/parts/form-field-password/form-field-password';
 import { LoginFormComponent } from './components/parts/login-form/login-form.component';
 
 
@@ -36,8 +34,6 @@ import { LoginFormComponent } from './components/parts/login-form/login-form.com
     LanguageSwitchComponent,
     DialogDataExample, 
     DialogDataExampleDialog,
-    FormFieldEmailExample,
-    FormFieldPasswordExample,
     LoginFormComponent
   ],
   imports: [

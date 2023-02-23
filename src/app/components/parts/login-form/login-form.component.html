@@ -1,26 +1,26 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
 <mat-form-field appearance="fill">
-    <mat-label>Enter your email</mat-label>
+    <mat-label>{{ translation.emailAddress }}</mat-label>
     <input matInput placeholder="pat@example.com" [formControl]="email"
      formControlName="email" required (ngModelChange)="emailOnChange()" >
     <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
 </mat-form-field>
-<br/>
+<br/><br/>
 
 <mat-form-field appearance="fill">
-    <mat-label>Password</mat-label>
+    <mat-label>{{ translation.password }}</mat-label>
     <input type='password' matInput placeholder="pat@example.com"
      [formControl]="password"
       formControlName="password" required  (ngModelChange)="passwordOnChange()">
     <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>
 </mat-form-field>
-
+<br/><br/>
 <div class="example-button-row">
-    <button type='submit'  mat-raised-button color="primary" [disabled]="!loginForm.valid">Submit</button>
-    <button mat-raised-button color="warn" (click)="reset()" [disabled]="!loginForm">Reset</button>
-    <button mat-raised-button disabled>Cancel</button>
+    <button type='submit'  mat-raised-button color="primary" [disabled]="!loginForm.valid">{{ translation.senddata }}</button>&nbsp;&nbsp;
+    <button mat-raised-button color="warn" (click)="reset()" [disabled]="!loginForm">{{ translation.clearValues }}</button>&nbsp;&nbsp;
+    <button mat-raised-button disabled>{{ translation.cancel }}</button>
   </div>
   
 </form>
-<br/><br/>
+

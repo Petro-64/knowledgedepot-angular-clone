@@ -2,6 +2,12 @@ import {Component, Inject, Directive, ElementRef} from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 
+import { OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { messages } from '../../../common/translations/login.translations';
+import { Observable } from 'rxjs';
+import * as LoginAct from '../../../common/actions/login.action';
+
 /**
  * @title Injecting data when opening a dialog
  */
