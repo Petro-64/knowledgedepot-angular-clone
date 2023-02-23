@@ -23,15 +23,38 @@ export class DialogDataExample {
   openDialog() {
     this.dialog.open(DialogDataExampleDialog);
   }
+
+
 }
 
 @Component({
   selector: 'dialog-data-example-dialog',
   templateUrl: 'dialog-data-example-dialog.html',
+  styleUrls: ['dialog-data-example-dialog.css']
 })
-export class DialogDataExampleDialog {
-  email = new FormControl('', [Validators.required, Validators.email]);
-  constructor() {}
+export class DialogDataExampleDialog implements OnInit {
+  language: Observable<{language: string}>;
+  subscr: any;// to be able to unsubscribe onDestroy
+  translation: any = {};
+
+
+  close(){
+    console.log('close');
+    //this.close();
+    //this.closeAll();
+  }
+
+  constructor( 
+    private store: Store<{loginInfo: {email: string}, globalSettings: {language: string}}>
+  ){  }
+
+  ngOnInit(){ 
+    this.language = this.store.select('globalSettings');
+    this.subscr = this.language.subscribe(data => {
+      this.translation = data.language == 'en' ? messages.en : messages.ru;
+    }) 
+  }
+
 }
 
 

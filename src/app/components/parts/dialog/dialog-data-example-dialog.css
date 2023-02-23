@@ -1,0 +1,16 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.mat-toolbar-single-row {
+    padding-left: 26px;
+    padding-right: 0px;
+}
+
+.align-right {
+    margin-right: auto;
+}
+
+.mdc-button{
+    min-width: 10px;
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SidenavService } from '../../services/sidenav.service';
+import { SidenavService } from '../../common/services/sidenav/sidenav.service';
 import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
