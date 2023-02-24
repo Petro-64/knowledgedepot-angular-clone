@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { messages } from '../../../common/translations/login.translations';
+//import { setAPIStatus } from 'src/app/shared/store/app.action';
 import { Observable } from 'rxjs';
 import * as LoginAct from '../../../common/actions/login.action';
 
@@ -17,7 +18,8 @@ export class LoginFormComponent implements OnInit {
 
 
   constructor( 
-    private store: Store<{loginInfo: {email: string}, globalSettings: {language: string}}>
+    private store: Store<{loginInfo: {email: string}, globalSettings: {language: string}}>,
+    private store1: Store
   ){  }
 
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -28,6 +30,10 @@ export class LoginFormComponent implements OnInit {
     this.subscr = this.language.subscribe(data => {
       this.translation = data.language == 'en' ? messages.en : messages.ru;
     }) 
+  }
+
+  save(){
+
   }
 
   loginForm = new FormGroup({

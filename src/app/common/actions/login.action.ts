@@ -1,6 +1,4 @@
 import { Action, createAction, props } from '@ngrx/store';
-import { Login } from '../../common/models/login.model';
-import { Email } from '../../common/models/email.model';
 
 export const GET_LOGIN_DATA ='GET_LOGIN_DATA';
 export const GET_LOGIN_EMAIL ='GET_LOGIN_EMAIL';

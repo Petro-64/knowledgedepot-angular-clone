@@ -17,7 +17,7 @@
 </mat-form-field>
 <br/><br/>
 <div class="example-button-row">
-    <button type='submit'  mat-raised-button color="primary" [disabled]="!loginForm.valid">{{ translation.senddata }}</button>&nbsp;&nbsp;
+    <button mat-raised-button color="primary" [disabled]="!loginForm.valid" click="save()">{{ translation.senddata }}</button>&nbsp;&nbsp;
     <button mat-raised-button color="warn" (click)="reset()" [disabled]="!loginForm">{{ translation.clearValues }}</button>&nbsp;&nbsp;
     <button mat-raised-button disabled>{{ translation.cancel }}</button>
   </div>

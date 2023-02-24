@@ -16,7 +16,7 @@ export class SubjectsEffectTs {
       ) {}
 
     loadAllBooks$ = createEffect(() =>
-        this.actions$.pipe(
+      this.actions$.pipe(
       ofType(invokeBooksAPI),
       withLatestFrom(this.store.pipe(select(selectSubjects))),
       mergeMap(([, bookformStore]) => {

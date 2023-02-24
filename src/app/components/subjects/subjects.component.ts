@@ -5,7 +5,9 @@ import { Subject } from '../../common/models/subject.model';
 import { GetSubjectsService } from '../../common/services/http/getsubjects.service';
 import { messages } from '../../common/translations/subjects.translations';
 import { selectSubjects } from '../../common/selectors/subjects.selector';
-import { invokeBooksAPI } from '../../common/actions/subjects-for-effects.action'
+import { invokeBooksAPI } from '../../common/actions/subjects-for-effects.action';
+import { of, pipe } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -13,6 +15,8 @@ import { invokeBooksAPI } from '../../common/actions/subjects-for-effects.action
   templateUrl: './subjects.component.html',
   styleUrls: ['./subjects.component.css']
 })
+
+
 
 export class SubjectsComponent implements OnInit, OnDestroy  {
   subjects: Observable<{subjects: Subject[]}>;
@@ -27,9 +31,14 @@ export class SubjectsComponent implements OnInit, OnDestroy  {
   ){  }
 
   books$ = this.store.pipe(select(selectSubjects));
-
-
+  
+  nums = of(1, 2, 3);
+  squareValues = map((val: number) => val * val);
+  squaredNums = this.squareValues(this.nums);
+  
+  
   ngOnInit(): void{
+    this.squaredNums.subscribe(x => console.log(x));
     this.subjects = this.store.select('subjectsList');
     this.language = this.store.select('globalSettings');
     this.subscr = this.language.subscribe(
@@ -55,3 +64,4 @@ export class SubjectsComponent implements OnInit, OnDestroy  {
 
   displayedColumns: string[] = ['id', 'name', 'created_at', 'updated_at', 'questions_number'];
 }
+///https://www.learmoreseekmore.com/2022/06/angular-14-statemanagement-crud-example-with-rxjs14.html
