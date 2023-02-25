@@ -1,32 +1,13 @@
-import { Subject } from '../../common/models/subject.model';
-import * as SubjectsAct from '../actions/subjects.action';
+import { createReducer, on } from '@ngrx/store';
+import { Subject } from '../models/subject.model';
+import { invokeSubjectsAPI, subjectsFetchAPISuccess} from '../actions/subjects-effects.action';
 
-export interface SubjectsState {
-    subjects: Subject[];
-    names: string;
-}
+export const initialState: ReadonlyArray<Subject> = [];
 
-const initialState: SubjectsState = {
-    subjects: [],
-    names: '',
-}
+export const subjectReducer = createReducer(
+  initialState,
+  on(subjectsFetchAPISuccess, (state, { allBooks }) => {
+    return allBooks;
+  }),
 
-export function subjectsReducer(state: SubjectsState = initialState, action: SubjectsAct.GetSubjects): SubjectsState {
-    switch(action.type){
-        case SubjectsAct.GET_SUBJECTS:
-            return {
-                ...state, 
-                subjects: action.payload
-            };
-
-        case SubjectsAct.ADD_SUBJECTS:    
-            return {
-                ...state, 
-                subjects: [...state.subjects.concat(action.payload)]
-            };
-        default: 
-            return {
-                ...state
-            };
-    }
-}
+);

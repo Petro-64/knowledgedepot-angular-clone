@@ -4,10 +4,12 @@ import { Observable } from 'rxjs';
 import { Subject } from '../../common/models/subject.model';
 import { GetSubjectsService } from '../../common/services/http/getsubjects.service';
 import { messages } from '../../common/translations/subjects.translations';
-import { selectSubjects } from '../../common/selectors/subjects.selector';
-import { invokeBooksAPI } from '../../common/actions/subjects-for-effects.action';
+import { selectSubject } from '../../common/selectors/subjects.selector';
+//import { invokeBooksAPI } from '../../common/actions/subjects-for-effects.action';
 import { of, pipe } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Appstate } from '../../common/store/appstate';
+import { invokeSubjectsAPI } from '../../../app/common/actions/subjects-effects.action';
 
 
 @Component({
@@ -20,46 +22,27 @@ import { map } from 'rxjs/operators';
 
 export class SubjectsComponent implements OnInit, OnDestroy  {
   subjects: Observable<{subjects: Subject[]}>;
-  language: Observable<{language: string}>;
   subscr: any;// to be able to unsubscribe onDestroy
   translation: any = {};
 
 
   constructor( 
     private getSubjectsService: GetSubjectsService,
-    private store: Store<{subjectsList: {subjects: Subject[]}, globalSettings: {language: string}}>
+    private store: Store,
+    private appStore: Store<Appstate>
   ){  }
 
-  books$ = this.store.pipe(select(selectSubjects));
+  books$ = this.store.pipe(select(selectSubject));
   
-  nums = of(1, 2, 3);
-  squareValues = map((val: number) => val * val);
-  squaredNums = this.squareValues(this.nums);
-  
-  
-  ngOnInit(): void{
-    this.squaredNums.subscribe(x => console.log(x));
-    this.subjects = this.store.select('subjectsList');
-    this.language = this.store.select('globalSettings');
-    this.subscr = this.language.subscribe(
-      data => {
-        this.translation = data.language == 'en' ? messages.en : messages.ru
-      }
-    )
-    this.getSubjectsService.getSubjects();
-    this.store.dispatch(invokeBooksAPI());
-    this.books$.subscribe(
-      data => {
-        if(data.payload){
-          console.log(data.payload.subjects)
-        }
-     
-      }
-    );
+  ngOnInit(): void {
+    this.store.dispatch(invokeSubjectsAPI());
+    this.books$.subscribe((data) => {
+      console.log(data)
+    })
   }
 
   ngOnDestroy() {
-    this.subscr.unsubscribe()
+    //this.subscr.unsubscribe()
   }
 
   displayedColumns: string[] = ['id', 'name', 'created_at', 'updated_at', 'questions_number'];

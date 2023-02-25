@@ -13,7 +13,6 @@ import { TestsComponent } from './components/tests/tests.component';
 import { ResultsComponent } from './components/results/results.component';
 import { SubjectsComponent } from './components/subjects/subjects.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers } from './common/reducers';
 import { HttpClientModule } from "@angular/common/http";
 import { GetSubjectsService } from './common/services/http/getsubjects.service';
 import { LanguageSwitchComponent } from './components/parts/language-switch/language-switch.component';
@@ -23,8 +22,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { LoginFormComponent } from './components/parts/login-form/login-form.component';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { SubjectsEffectTs } from './common/effects/subjects.effect.ts'
-import { subjectsReducer } from './common/reducers/subjects-for-effects.reducer'
+import { appReducer } from '../app/common/store/app.reducer';
+import { SubjectsEffect } from '../app/common/effects/subjects.effect';
+import { subjectReducer } from '../../src/app/common/reducers/subjects.reducer'; 
+
 
 
 @NgModule({
@@ -46,13 +47,15 @@ import { subjectsReducer } from './common/reducers/subjects-for-effects.reducer'
     BrowserAnimationsModule,
     MaterialExampleModule,
     MatExpansionModule,
-    StoreModule.forRoot(reducers),
-    StoreModule.forFeature('mybooks', subjectsReducer),
+    //StoreModule.forRoot(reducers),
+    StoreModule.forRoot({ appState: appReducer }),
+    StoreModule.forFeature('subjects', subjectReducer),
     HttpClientModule,
     FormsModule, 
     ReactiveFormsModule,
     MatNativeDateModule,
-    EffectsModule.forRoot([SubjectsEffectTs]),
+    EffectsModule.forRoot([SubjectsEffect]),
+    //EffectsModule.forRoot([SubjectsEffectTs]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
   providers: [GetSubjectsService],

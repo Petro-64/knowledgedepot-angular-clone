@@ -1,4 +1,4 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<!-- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
 <mat-form-field appearance="fill">
     <mat-label>{{ translation.emailAddress }}</mat-label>
@@ -22,5 +22,29 @@
     <button mat-raised-button disabled>{{ translation.cancel }}</button>
   </div>
   
-</form>
+</form> -->
+
+
+<div class="container">
+  <legend>Add A New Book</legend>
+  <div class="mb-3">
+    <label for="txtBookName" class="form-label">Book Name</label>
+    <input
+      type="text"
+      [(ngModel)]="loginForm.email"
+      class="form-control"
+      id="txtBookName"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="txtAuthor" class="form-label">Author</label>
+    <input
+      type="text"
+      [(ngModel)]="loginForm.password"
+      class="form-control"
+      id="txtAuthor"
+    />
+  </div>
+  <button type="button" class="btn btn-dark" (click)="save()">Create</button>
+</div>
 

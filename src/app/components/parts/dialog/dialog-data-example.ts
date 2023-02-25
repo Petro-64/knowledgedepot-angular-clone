@@ -1,6 +1,5 @@
 import {Component, Inject, Directive, ElementRef} from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 
 import { OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -49,10 +48,6 @@ export class DialogDataExampleDialog implements OnInit {
   ){  }
 
   ngOnInit(){ 
-    this.language = this.store.select('globalSettings');
-    this.subscr = this.language.subscribe(data => {
-      this.translation = data.language == 'en' ? messages.en : messages.ru;
-    }) 
   }
 
 }
