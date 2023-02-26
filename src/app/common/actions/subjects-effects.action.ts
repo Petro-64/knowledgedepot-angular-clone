@@ -7,6 +7,6 @@ export const invokeSubjectsAPI = createAction(
 
 export const subjectsFetchAPISuccess = createAction(
   '[Books API] Fetch API Success',
-  props<{ allBooks: Subject[] }>()
+  props<{ allSubjects: Subject[] }>()
 );
 

@@ -8,7 +8,7 @@ import { Subject } from '../../models/subject.model';
 export class BooksService {
   constructor(private http: HttpClient) {}
   get() {
-    return this.http.get<Subject[]>('http://127.0.0.1:8000/react/subjects');
+    return this.http.get<Subject[]>('http://127.0.0.1:8000/angular/getsubjectsuser');
   }
   
   // create(payload: Subject) {

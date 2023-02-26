@@ -6,8 +6,8 @@ export const initialState: ReadonlyArray<Subject> = [];
 
 export const subjectReducer = createReducer(
   initialState,
-  on(subjectsFetchAPISuccess, (state, { allBooks }) => {
-    return allBooks;
+  on(subjectsFetchAPISuccess, (state, { allSubjects }) => {
+    return allSubjects;
   }),
 
 );

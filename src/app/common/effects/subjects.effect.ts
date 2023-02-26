@@ -25,13 +25,13 @@ export class SubjectsEffect {
     this.actions$.pipe(
       ofType(invokeSubjectsAPI),
       withLatestFrom(this.store.pipe(select(selectSubject))),
-      mergeMap(([, bookformStore]) => {
-        if (bookformStore.length > 0) {
+      mergeMap(([, subjectsFromStore]) => {
+        if (subjectsFromStore.length > 0) {
           return EMPTY;
         }
         return this.booksService
           .get()
-          .pipe(map((data) => subjectsFetchAPISuccess({ allBooks: data })));
+          .pipe(map((data) => subjectsFetchAPISuccess({ allSubjects: data })));
       })
     )
   );

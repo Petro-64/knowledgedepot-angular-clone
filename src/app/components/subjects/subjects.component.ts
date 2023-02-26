@@ -21,10 +21,9 @@ import { invokeSubjectsAPI } from '../../../app/common/actions/subjects-effects.
 
 
 export class SubjectsComponent implements OnInit, OnDestroy  {
-  subjects: Observable<{subjects: Subject[]}>;
   subscr: any;// to be able to unsubscribe onDestroy
   translation: any = {};
-
+  subjectss: any[] = [];
 
   constructor( 
     private getSubjectsService: GetSubjectsService,
@@ -32,17 +31,13 @@ export class SubjectsComponent implements OnInit, OnDestroy  {
     private appStore: Store<Appstate>
   ){  }
 
-  books$ = this.store.pipe(select(selectSubject));
+  subjects$ = this.store.pipe(select(selectSubject));
   
   ngOnInit(): void {
     this.store.dispatch(invokeSubjectsAPI());
-    this.books$.subscribe((data) => {
-      console.log(data)
-    })
   }
 
   ngOnDestroy() {
-    //this.subscr.unsubscribe()
   }
 
   displayedColumns: string[] = ['id', 'name', 'created_at', 'updated_at', 'questions_number'];
