@@ -6,9 +6,9 @@ import { messages } from '../../../common/translations/login.translations';
 import { Observable } from 'rxjs';
 import * as LoginAct from '../../../common/actions/login.action';
 import { Login } from '../../../common/models/login.model';
-import { setAPIStatus } from '../../../common/store/app.action';
-import { selectAppState } from '../../../common/store/app.selector';
-import { Appstate } from '../../../common/store/appstate';
+import { setAPIStatus } from '../../../common/actions/app.action';
+import { selectAppState } from '../../../common/selectors/app.selector';
+import { Appstate } from '../../../common/models/appstate';
 import { Router } from '@angular/router';
 
 @Component({

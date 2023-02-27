@@ -1,10 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
-import { setAPIStatus } from './app.action';
-import { Appstate } from './appstate';
+import { setAPIStatus, setLanguage } from '../actions/app.action';
+import { Appstate } from '../models/appstate';
 
 export const initialState: Readonly<Appstate> = {
   apiResponseMessage: '',
   apiStatus: '',
+  currentLanguage: 'en'
 };
 
 export const appReducer = createReducer(
@@ -14,5 +15,12 @@ export const appReducer = createReducer(
       ...state,
       ...apiStatus
     };
+  }),
+  on(setLanguage, (state, { currentLanguage }) => {
+    return {
+      ...state,
+      currentLanguage
+    };
   })
-);
+  );
+

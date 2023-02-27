@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
+import { selectAppState } from '../../../common/selectors/app.selector';
+import { Appstate } from '../../../common/models/appstate';
+import { setLanguage } from '../../../common/actions/app.action'
 
 @Component({
   selector: 'app-language-switch',
@@ -10,25 +13,35 @@ import { Store } from '@ngrx/store';
 export class LanguageSwitchComponent implements OnInit{
 
   constructor( 
-    private store: Store<{globalSettings: {language: string}}>
+    private appStore: Store<Appstate>
+
   ){  }
- 
-  // switch(){
-  //     if(this.languageValue == 'en'){
-  //       this.languageValue = 'ru'; 
-  //       this.setLanguage('ru');
-  //     } else {
-  //       this.languageValue = 'en';
-  //       this.setLanguage('en');
-  //     }
-      
-  // }
+  appState$ = this.appStore.pipe(select(selectAppState))
+  toggle(){
+    if(this.language == 'en'){
+      this.language = 'ru'
+      this.appStore.dispatch(
+        setLanguage({ currentLanguage: 'ru'  })
+      );
+    } else {
+      this.language = 'en'
+      this.appStore.dispatch(
+        setLanguage({ currentLanguage: 'en'  })
+      );
+    }
 
-  // setLanguage(lang: string){
-  //   this.store.dispatch(new LanguagesAct.SetLanguage(lang));
-  // }
+  }
+  subscr: any
 
+  language: string = ''
   ngOnInit(){
    // this.language = this.store.select('globalSettings');
+   this.subscr = this.appState$.subscribe((data) => {
+    this.language = data.currentLanguage;
+   })
   }
+  ngOnDestroy() {
+    this.subscr.unsubscribe()
+  }
+
 }

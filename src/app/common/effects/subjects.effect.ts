@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
 import { EMPTY, map, mergeMap, switchMap, withLatestFrom } from 'rxjs';
-import { setAPIStatus } from '../actions/app.action';
-import { Appstate } from '../store/appstate';
+import { Appstate } from '../models/appstate';
 import { BooksService } from '../../common/services/http/getsubjects-for-effects.service';
 import {
     invokeSubjectsAPI,

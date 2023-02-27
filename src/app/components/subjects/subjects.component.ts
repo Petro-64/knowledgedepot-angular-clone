@@ -8,8 +8,9 @@ import { selectSubject } from '../../common/selectors/subjects.selector';
 //import { invokeBooksAPI } from '../../common/actions/subjects-for-effects.action';
 import { of, pipe } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Appstate } from '../../common/store/appstate';
+import { Appstate } from '../../common/models/appstate';
 import { invokeSubjectsAPI } from '../../../app/common/actions/subjects-effects.action';
+import { selectAppState } from '../../common/selectors/app.selector';
 
 
 @Component({
@@ -23,7 +24,7 @@ import { invokeSubjectsAPI } from '../../../app/common/actions/subjects-effects.
 export class SubjectsComponent implements OnInit, OnDestroy  {
   subscr: any;// to be able to unsubscribe onDestroy
   translation: any = {};
-  subjectss: any[] = [];
+  ///subjectss: any[] = [];
 
   constructor( 
     private getSubjectsService: GetSubjectsService,
@@ -32,6 +33,7 @@ export class SubjectsComponent implements OnInit, OnDestroy  {
   ){  }
 
   subjects$ = this.store.pipe(select(selectSubject));
+  //appState$ = this.appStore.pipe(select(selectAppState))
   
   ngOnInit(): void {
     this.store.dispatch(invokeSubjectsAPI());

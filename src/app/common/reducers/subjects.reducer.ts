@@ -8,6 +8,6 @@ export const subjectReducer = createReducer(
   initialState,
   on(subjectsFetchAPISuccess, (state, { allSubjects }) => {
     return allSubjects;
-  }),
+  })
 
 );

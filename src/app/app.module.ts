@@ -22,7 +22,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { LoginFormComponent } from './components/parts/login-form/login-form.component';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { appReducer } from '../app/common/store/app.reducer';
+import { appReducer } from './common/reducers/app.reducer';
 import { SubjectsEffect } from '../app/common/effects/subjects.effect';
 import { subjectReducer } from '../../src/app/common/reducers/subjects.reducer'; 
 
