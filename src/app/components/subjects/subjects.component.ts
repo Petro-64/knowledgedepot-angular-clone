@@ -19,8 +19,6 @@ import { selectAppState } from '../../common/selectors/app.selector';
   styleUrls: ['./subjects.component.css']
 })
 
-
-
 export class SubjectsComponent implements OnInit, OnDestroy  {
   subscr: any;// to be able to unsubscribe onDestroy
   translation: any = {};
@@ -33,10 +31,16 @@ export class SubjectsComponent implements OnInit, OnDestroy  {
   ){  }
 
   subjects$ = this.store.pipe(select(selectSubject));
+  appState$ = this.appStore.pipe(select(selectAppState))
   //appState$ = this.appStore.pipe(select(selectAppState))
   
   ngOnInit(): void {
     this.store.dispatch(invokeSubjectsAPI());
+    this.appState$.subscribe(
+      (data) => {
+        this.translation = data.currentLanguage == 'en' ? messages.en : messages.ru;
+      }
+    )
   }
 
   ngOnDestroy() {
