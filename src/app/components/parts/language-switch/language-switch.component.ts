@@ -19,7 +19,7 @@ export class LanguageSwitchComponent implements OnInit{
   appState$ = this.appStore.pipe(select(selectAppState))
   toggle(){
     if(this.language == 'en'){
-      this.language = 'ru'
+      this.language = 'ru';
       this.appStore.dispatch(
         setLanguage({ currentLanguage: 'ru'  })
       );
@@ -35,7 +35,6 @@ export class LanguageSwitchComponent implements OnInit{
 
   language: string = ''
   ngOnInit(){
-   // this.language = this.store.select('globalSettings');
    this.subscr = this.appState$.subscribe((data) => {
     this.language = data.currentLanguage;
    })

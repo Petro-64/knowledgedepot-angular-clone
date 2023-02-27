@@ -1,11 +1,12 @@
 import { createReducer, on } from '@ngrx/store';
-import { setAPIStatus, setLanguage } from '../actions/app.action';
+import { setAPIStatus, setLanguage, setLoaderSpinnerVisibility } from '../actions/app.action';
 import { Appstate } from '../models/appstate';
 
 export const initialState: Readonly<Appstate> = {
   apiResponseMessage: '',
   apiStatus: '',
-  currentLanguage: 'en'
+  currentLanguage: 'en',
+  loaderSpinnerVisibility: false
 };
 
 export const appReducer = createReducer(
@@ -21,6 +22,13 @@ export const appReducer = createReducer(
       ...state,
       currentLanguage
     };
-  })
-  );
+  }),
+  ////
+  on(setLoaderSpinnerVisibility, (state, { loaderSpinnerVisibility }) => {
+    return {
+      ...state,
+      loaderSpinnerVisibility
+    };
+  }),
+);
 

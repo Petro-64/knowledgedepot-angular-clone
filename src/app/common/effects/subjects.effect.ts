@@ -1,21 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
-import { EMPTY, map, mergeMap, switchMap, withLatestFrom } from 'rxjs';
+import { EMPTY, map, mergeMap, switchMap, withLatestFrom, tap, catchError, throwError } from 'rxjs';
 import { Appstate } from '../models/appstate';
-import { BooksService } from '../../common/services/http/getsubjects-for-effects.service';
+import { SubjectService } from '../../common/services/http/getsubjects-for-effects.service';
 import {
     invokeSubjectsAPI,
     subjectsFetchAPISuccess,
 
 } from '../actions/subjects-effects.action';
 import { selectSubject } from '../selectors/subjects.selector';
+import { setLoaderSpinnerVisibility } from '../actions/app.action'
 
 @Injectable()
 export class SubjectsEffect {
   constructor(
     private actions$: Actions,
-    private booksService: BooksService,
+    private subjectService: SubjectService,
     private store: Store,
     private appStore: Store<Appstate>
   ) {}
@@ -28,9 +29,15 @@ export class SubjectsEffect {
         if (subjectsFromStore.length > 0) {
           return EMPTY;
         }
-        return this.booksService
+        return this.subjectService
           .get()
-          .pipe(map((data) => subjectsFetchAPISuccess({ allSubjects: data })));
+          .pipe(
+            tap(() => {
+              this.appStore.dispatch(setLoaderSpinnerVisibility({ loaderSpinnerVisibility: false  }));
+            }),
+            map((data) => subjectsFetchAPISuccess({ allSubjects: data })),
+            ///catchError((err) => throwError('error when retrieving hourly forecast'))
+          );
       })
     )
   );

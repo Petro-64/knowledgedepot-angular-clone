@@ -10,3 +10,8 @@ export const setLanguage = createAction(
     '[API] set global language',
     props<{currentLanguage: string}>()
 );
+
+export const setLoaderSpinnerVisibility = createAction(
+    '[API] set loader spinner visibility',
+    props<{loaderSpinnerVisibility: boolean}>()
+);
