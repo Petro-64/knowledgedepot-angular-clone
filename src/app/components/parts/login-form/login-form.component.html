@@ -1,50 +1,24 @@
-<!-- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
-<mat-form-field appearance="fill">
-    <mat-label>{{ translation.emailAddress }}</mat-label>
-    <input matInput placeholder="pat@example.com" [formControl]="email"
-     formControlName="email" required (ngModelChange)="emailOnChange()" >
-    <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
-</mat-form-field>
-<br/><br/>
-
-<mat-form-field appearance="fill">
-    <mat-label>{{ translation.password }}</mat-label>
-    <input type='password' matInput placeholder="pat@example.com"
-     [formControl]="password"
-      formControlName="password" required  (ngModelChange)="passwordOnChange()">
-    <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>
-</mat-form-field>
-<br/><br/>
-<div class="example-button-row">
-    <button mat-raised-button color="primary" [disabled]="!loginForm.valid" click="save()">{{ translation.senddata }}</button>&nbsp;&nbsp;
-    <button mat-raised-button color="warn" (click)="reset()" [disabled]="!loginForm">{{ translation.clearValues }}</button>&nbsp;&nbsp;
-    <button mat-raised-button disabled>{{ translation.cancel }}</button>
-  </div>
+  <mat-form-field appearance="fill">
+      <mat-label>{{ translation.emailAddress }}</mat-label>
+      <input matInput placeholder="pat@example.com" [formControl]="email"
+       formControlName="email" required  >
+      <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
+  </mat-form-field>
+  <br/><br/>
   
-</form> -->
-
-
-<div class="container">
-  <legend>Add A New Book</legend>
-  <div class="mb-3">
-    <label for="txtBookName" class="form-label">Book Name</label>
-    <input
-      type="text"
-      [(ngModel)]="loginForm.email"
-      class="form-control"
-      id="txtBookName"
-    />
-  </div>
-  <div class="mb-3">
-    <label for="txtAuthor" class="form-label">Author</label>
-    <input
-      type="text"
-      [(ngModel)]="loginForm.password"
-      class="form-control"
-      id="txtAuthor"
-    />
-  </div>
-  <button type="button" class="btn btn-dark" (click)="save()">Create</button>
-</div>
-
+  <mat-form-field appearance="fill">
+      <mat-label>{{ translation.password }}</mat-label>
+      <input type='password' matInput
+       [formControl]="password"
+        formControlName="password" required>
+      <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>
+  </mat-form-field>
+  <br/><br/>
+  <div class="example-button-row">
+      <button type='submit'  mat-raised-button color="primary" [disabled]="!loginForm.valid">{{ translation.senddata }}</button>&nbsp;&nbsp;
+      <button mat-raised-button color="warn" (click)="reset()" [disabled]="!loginForm">{{ translation.clearValues }}</button>&nbsp;&nbsp;
+    </div>
+    
+  </form>

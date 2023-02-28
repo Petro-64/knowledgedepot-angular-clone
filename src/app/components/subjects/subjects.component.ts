@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy  } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Subject } from '../../common/models/subject.model';
-import { GetSubjectsService } from '../../common/services/http/getsubjects.service';
+//import { GetSubjectsService } from '../../common/services/http/getsubjects.service';
 import { messages } from '../../common/translations/subjects.translations';
 import { selectSubject } from '../../common/selectors/subjects.selector';
 //import { invokeBooksAPI } from '../../common/actions/subjects-for-effects.action';
@@ -25,7 +25,7 @@ export class SubjectsComponent implements OnInit, OnDestroy  {
   ///subjectss: any[] = [];
 
   constructor( 
-    private getSubjectsService: GetSubjectsService,
+    //private getSubjectsService: GetSubjectsService,
     private store: Store,
     private appStore: Store<Appstate>
   ){  }
@@ -36,7 +36,7 @@ export class SubjectsComponent implements OnInit, OnDestroy  {
   
   ngOnInit(): void {
     this.store.dispatch(invokeSubjectsAPI());
-    this.appState$.subscribe(
+    this.subscr = this.appState$.subscribe(
       (data) => {
         this.translation = data.currentLanguage == 'en' ? messages.en : messages.ru;
       }
@@ -44,6 +44,7 @@ export class SubjectsComponent implements OnInit, OnDestroy  {
   }
 
   ngOnDestroy() {
+    this.subscr.unsubscribe();
   }
 
   displayedColumns: string[] = ['id', 'name', 'created_at', 'updated_at', 'questions_number'];

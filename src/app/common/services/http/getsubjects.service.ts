@@ -1,27 +1,43 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse  } from '@angular/common/http';
 import { Subject } from '../../models/subject.model';
-import { Store } from '@ngrx/store';
-import * as SubjectsAct from '../../actions/subjects.action';
+import { Component, OnInit } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import { selectAppState } from '../../selectors/app.selector';
+import { Appstate } from '../../models/appstate';
+import { setLoaderSpinnerVisibility } from '../../actions/app.action';
+import { EMPTY, map, mergeMap, switchMap, withLatestFrom, tap,  throwError } from 'rxjs';//catchError,
+import { catchError } from 'rxjs/operators';
 
+@Injectable({
+  providedIn: 'root',
+})
+export class SubjectService {
+  constructor(
+    private http: HttpClient,
+    private appStore: Store<Appstate>
+    ) {
+    
+  }
+  get() {
+    this.appStore.dispatch(      setLoaderSpinnerVisibility({ loaderSpinnerVisibility: true  })    );
+    return this.http.get<Subject[]>('http://127.0.0.1:8000/angular/getsubjectsuser').pipe(
+      //catchError(err => this.showError(err))
+    );
+  }
 
-@Injectable()
-export class GetSubjectsService {
-    private Url = 'http://127.0.0.1:8000/react/subjects';
+  // create(payload: Subject) {
+  //   return this.http.post<Subject>('http://localhost:3000/books', payload);
+  // }
 
-    private subjects: Subject[] = [];
+  // update(payload: Subject) {
+  //   return this.http.put<Subject>(
+  //     `http://localhost:3000/books/${payload.id}`,
+  //     payload
+  //   );
+  // }
 
-    constructor (
-        private store: Store<{subjectsList: {subjects: Subject[]}}>,
-        private http: HttpClient
-    ){}
-
-    getSubjects(){
-        this.http
-        .get<any>(this.Url, { responseType: 'json'})
-        .subscribe(data => {
-            this.subjects = data.payload.subjects;
-            this.store.dispatch(new SubjectsAct.GetSubjects(data.payload.subjects));
-        });
-    }
+  // delete(id: number) {
+  //   return this.http.delete(`http://localhost:3000/books/${id}`);
+  // }
 }

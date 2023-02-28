@@ -1,22 +1,22 @@
-import {Component, Inject, Directive, ElementRef} from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
-
-import { OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { messages } from '../../../common/translations/login.translations';
+import { Component, OnInit, OnDestroy  } from '@angular/core';
+import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import * as LoginAct from '../../../common/actions/login.action';
+import { messages } from '../../../common/translations/login.translations';
+import { Appstate } from '../../../common/models/appstate';
+import { selectAppState } from '../../../common/selectors/app.selector';
 
-/**
- * @title Injecting data when opening a dialog
- */
 @Component({
   selector: 'dialog-data-example',
   templateUrl: 'dialog-data-example.html',
   styleUrls: ['dialog-data-example.css']
 })
 export class DialogDataExample {
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    public dialog: MatDialog,
+    private store: Store,
+    private appStore: Store<Appstate>
+    ) {}
 
 
   openDialog() {
@@ -42,12 +42,23 @@ export class DialogDataExampleDialog implements OnInit {
     //this.close();
     //this.closeAll();
   }
-
+  appState$ = this.appStore.pipe(select(selectAppState))
   constructor( 
-    private store: Store<{loginInfo: {email: string}, globalSettings: {language: string}}>
+    public dialog: MatDialog,
+    private store: Store,
+    private appStore: Store<Appstate>
   ){  }
 
   ngOnInit(){ 
+    this.subscr = this.appState$.subscribe(
+      (data) => {
+        this.translation = data.currentLanguage == 'en' ? messages.en : messages.ru;
+      }
+    )
+  }
+
+  ngOnDestroy() {
+    this.subscr.unsubscribe();
   }
 
 }

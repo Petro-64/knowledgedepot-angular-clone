@@ -14,7 +14,6 @@ import { ResultsComponent } from './components/results/results.component';
 import { SubjectsComponent } from './components/subjects/subjects.component';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from "@angular/common/http";
-import { GetSubjectsService } from './common/services/http/getsubjects.service';
 import { LanguageSwitchComponent } from './components/parts/language-switch/language-switch.component';
 import {DialogDataExample, DialogDataExampleDialog} from './components/parts/dialog/dialog-data-example';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -24,8 +23,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appReducer } from './common/reducers/app.reducer';
 import { SubjectsEffect } from '../app/common/effects/subjects.effect';
-import { subjectReducer } from '../../src/app/common/reducers/subjects.reducer'; 
-
+import { subjectReducer } from '../../src/app/common/reducers/subjects.reducer';
+import { LoaderSpinnerComponent } from './components/parts/loader-spinner/loader-spinner.component'; 
 
 
 @NgModule({
@@ -39,7 +38,8 @@ import { subjectReducer } from '../../src/app/common/reducers/subjects.reducer';
     LanguageSwitchComponent,
     DialogDataExample, 
     DialogDataExampleDialog,
-    LoginFormComponent
+    LoginFormComponent,
+    LoaderSpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +58,7 @@ import { subjectReducer } from '../../src/app/common/reducers/subjects.reducer';
     //EffectsModule.forRoot([SubjectsEffectTs]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
-  providers: [GetSubjectsService],
+  providers: [],//GetSubjectsService
   bootstrap: [AppComponent], 
 })
 export class AppModule { }

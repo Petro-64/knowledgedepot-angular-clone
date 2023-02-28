@@ -3,14 +3,15 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
 import { EMPTY, map, mergeMap, switchMap, withLatestFrom, tap, catchError, throwError } from 'rxjs';
 import { Appstate } from '../models/appstate';
-import { SubjectService } from '../../common/services/http/getsubjects-for-effects.service';
+import { SubjectService } from '../services/http/getsubjects.service';
 import {
     invokeSubjectsAPI,
     subjectsFetchAPISuccess,
 
 } from '../actions/subjects-effects.action';
 import { selectSubject } from '../selectors/subjects.selector';
-import { setLoaderSpinnerVisibility } from '../actions/app.action'
+import { setLoaderSpinnerVisibility } from '../actions/app.action';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 export class SubjectsEffect {
@@ -36,11 +37,42 @@ export class SubjectsEffect {
               this.appStore.dispatch(setLoaderSpinnerVisibility({ loaderSpinnerVisibility: false  }));
             }),
             map((data) => subjectsFetchAPISuccess({ allSubjects: data })),
-            ///catchError((err) => throwError('error when retrieving hourly forecast'))
+            catchError(error => {
+              let errorMsg: string;
+              if (error.error instanceof ErrorEvent) {
+                  errorMsg = `Error: ${error.error.message}`;
+              } else {
+                  errorMsg = this.getServerErrorMessage(error);
+              }
+              this.appStore.dispatch(setLoaderSpinnerVisibility({ loaderSpinnerVisibility: false  }));
+              alert(errorMsg);
+              return throwError(errorMsg);
+          })
           );
       })
     )
   );
+
+
+  private getServerErrorMessage(error: HttpErrorResponse): string {
+    switch (error.status) {
+        case 404: {
+            return `Not Found: ${error.message}`;
+        }
+        case 403: {
+            return `Access Denied: ${error.message}`;
+        }
+        case 500: {
+            return `Internal Server Error: ${error.message}`;
+        }
+        default: {
+            return `Unknown Server Error: ${error.message}`;
+        }
+
+    }
+}
+
+
 
 //   saveNewBook$ = createEffect(() => {
 //     return this.actions$.pipe(

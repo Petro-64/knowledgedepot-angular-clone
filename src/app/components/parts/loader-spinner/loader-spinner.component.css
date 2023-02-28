@@ -1,0 +1,20 @@
+.spinner-overlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 20000;
+}
+
+.spinner-image {
+    background: url('../../../../assets/img/loader-spinner.gif');
+    background-size: 100% 100%;
+    width: 128px;
+    height: 128px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 200000;
+    transform: translate(-50%, -50%);
+}
