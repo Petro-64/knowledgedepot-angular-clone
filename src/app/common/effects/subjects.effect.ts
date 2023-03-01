@@ -22,7 +22,8 @@ export class SubjectsEffect {
     private store: Store,
     private appStore: Store<Appstate>,
     private loginFormResetService: modalAnDialogOrchestra,
-    private loginFormCloseService: modalAnDialogOrchestra    
+    private loginFormCloseService: modalAnDialogOrchestra,
+    private showSnackBarService: modalAnDialogOrchestra,
   ) {}
 
   loadAllBooks$ = createEffect(() =>
@@ -82,7 +83,7 @@ export class SubjectsEffect {
             this.appStore.dispatch(setLoaderSpinnerVisibility({ loaderSpinnerVisibility: false  }));
             this.loginFormResetService.resetLoginForm();
             this.loginFormCloseService.hideLoginPopUp();
-            alert(errorMsg);
+            this.showSnackBarService.showSnackBar();    
             return throwError(errorMsg);
           })
         );

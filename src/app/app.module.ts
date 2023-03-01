@@ -24,7 +24,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appReducer } from './common/reducers/app.reducer';
 import { SubjectsEffect } from '../app/common/effects/subjects.effect';
 import { subjectReducer } from '../../src/app/common/reducers/subjects.reducer';
-import { LoaderSpinnerComponent } from './components/parts/loader-spinner/loader-spinner.component'; 
+import { LoaderSpinnerComponent } from './components/parts/loader-spinner/loader-spinner.component';
+import { SnackbarComponent } from './components/parts/snackbar/snackbar.component'; 
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { LoaderSpinnerComponent } from './components/parts/loader-spinner/loader
     DialogDataExample, 
     DialogDataExampleDialog,
     LoginFormComponent,
-    LoaderSpinnerComponent
+    LoaderSpinnerComponent,
+    SnackbarComponent
   ],
   imports: [
     BrowserModule,

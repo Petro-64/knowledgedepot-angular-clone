@@ -66,7 +66,7 @@ export class LoginFormComponent implements OnInit {
   reset(){    this.email.setValue(''); this.password.setValue('');  }
 
   ngOnDestroy() {
-    this.subscr.unsubscribe();
+    //this.subscr.unsubscribe();
     this.subscrLang.unsubscribe();
     this.subscrResetLogin.unsubscribe();
   }

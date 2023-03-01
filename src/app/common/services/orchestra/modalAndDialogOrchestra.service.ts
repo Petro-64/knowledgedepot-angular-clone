@@ -8,6 +8,7 @@ export class modalAnDialogOrchestra {
   public sideNavToggleSubject: BehaviorSubject<any> = new BehaviorSubject(null);
   public loginPopUpResetSubject: BehaviorSubject<any> = new BehaviorSubject(null);
   public loginPopUpCloseSubject: BehaviorSubject<any> = new BehaviorSubject(null);
+  public showSnackBarSubject: BehaviorSubject<any> = new BehaviorSubject(8);
 
   constructor() { }
 
@@ -21,5 +22,11 @@ export class modalAnDialogOrchestra {
 
   public hideLoginPopUp() {
     return this.loginPopUpCloseSubject.next(null);
+  }
+
+  public showSnackBar() {
+    console.log("showSnackBar in orchestra and value is", this.showSnackBarSubject.value);
+    
+    return this.showSnackBarSubject.next(1);
   }
 }
