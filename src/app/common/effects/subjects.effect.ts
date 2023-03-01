@@ -4,11 +4,11 @@ import { select, Store } from '@ngrx/store';
 import { EMPTY, map, mergeMap, switchMap, withLatestFrom, tap, catchError, throwError } from 'rxjs';
 import { Appstate } from '../models/appstate';
 import { SubjectService } from '../services/http/getsubjects.service';
-import {
-    invokeSubjectsAPI,
-    subjectsFetchAPISuccess,
+import { LoginService } from '../services/http/postlogin.service';
+import { invokeSubjectsAPI, subjectsFetchAPISuccess } from '../actions/subjects.action';
+import { setAPIStatus, fakeAction } from '../../common/actions/app.action';
+import { postLoginInfo, saveLoginResponce } from '../actions/login.action';
 
-} from '../actions/subjects-effects.action';
 import { selectSubject } from '../selectors/subjects.selector';
 import { setLoaderSpinnerVisibility } from '../actions/app.action';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
@@ -18,6 +18,7 @@ export class SubjectsEffect {
   constructor(
     private actions$: Actions,
     private subjectService: SubjectService,
+    private LoginService: LoginService,
     private store: Store,
     private appStore: Store<Appstate>
   ) {}
@@ -47,74 +48,60 @@ export class SubjectsEffect {
               this.appStore.dispatch(setLoaderSpinnerVisibility({ loaderSpinnerVisibility: false  }));
               alert(errorMsg);
               return throwError(errorMsg);
-          })
+            })
           );
       })
     )
   );
 
 
-  private getServerErrorMessage(error: HttpErrorResponse): string {
-    switch (error.status) {
-        case 404: {
-            return `Not Found: ${error.message}`;
-        }
-        case 403: {
-            return `Access Denied: ${error.message}`;
-        }
-        case 500: {
-            return `Internal Server Error: ${error.message}`;
-        }
-        default: {
-            return `Unknown Server Error: ${error.message}`;
-        }
-
-    }
-}
-
-
-
-//   saveNewBook$ = createEffect(() => {
-//     return this.actions$.pipe(
-//       ofType(invokeSaveNewBookAPI),
-//       switchMap((action) => {
-//         this.appStore.dispatch(
-//           setAPIStatus({ apiStatus: { apiResponseMessage: '', apiStatus: '' } })
-//         );
-//         return this.booksService.create(action.newBook).pipe(
-//           map((data) => {
-//             this.appStore.dispatch(
-//               setAPIStatus({
-//                 apiStatus: { apiResponseMessage: '', apiStatus: 'success' },
-//               })
-//             );
-//             return saveNewBookAPISucess({ newBook: data });
-//           })
-//         );
-//       })
-//     );
-//   });
-
-//   updateBookAPI$ = createEffect(() => {
-//     return this.actions$.pipe(
-//       ofType(invokeUpdateBookAPI),
-//       switchMap((action) => {
-//         this.appStore.dispatch(
-//           setAPIStatus({ apiStatus: { apiResponseMessage: '', apiStatus: '' } })
-//         );
-//         return this.booksService.update(action.updateBook).pipe(
-//           map((data) => {
-//             this.appStore.dispatch(
-//               setAPIStatus({
-//                 apiStatus: { apiResponseMessage: '', apiStatus: 'success' },
-//               })
-//             );
-//             return updateBookAPISucess({ updateBook: data });
-//           })
-//         );
-//       })
-//     );
-//   });
+  login$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(postLoginInfo),
+      switchMap((action) => {
+        return this.LoginService.post(action.login).pipe(
+          map((data) => {
+            this.appStore.dispatch(
+              saveLoginResponce({ loginResponce: data })
+            );
+            return  setLoaderSpinnerVisibility({ loaderSpinnerVisibility: false  });
+          }),
+          catchError(error => {
+            let errorMsg: string;
+            if (error.error instanceof ErrorEvent) {
+                errorMsg = `Error: ${error.error.message}`;
+            } else {
+                errorMsg = this.getServerErrorMessage(error);
+            }
+            this.appStore.dispatch(setLoaderSpinnerVisibility({ loaderSpinnerVisibility: false  }));
+            alert(errorMsg);
+            return throwError(errorMsg);
+          })
+        );
+      })
+    );
+  });
+  // petro.niemkov@gmail.com
+  // updateBookAPI$ = createEffect(() => {
+  //   return this.actions$.pipe(
+  //     ofType(invokeUpdateBookAPI),
+  //     switchMap((action) => {
+  //       this.appStore.dispatch(
+  //         setAPIStatus({ apiStatus: { apiResponseMessage: '', apiStatus: '' } })
+  //       );
+  //       return this.booksService.update(action.updateBook).pipe(
+  //         map((data) => {
+  //           this.appStore.dispatch(
+  //             setAPIStatus({
+  //               apiStatus: { apiResponseMessage: '', apiStatus: 'success' },
+  //             })
+  //           );
+  //           return updateBookAPISucess({ updateBook: data });
+  //         })
+  //       );
+  //     })
+  //   );
+  // });
 
 //   deleteBooksAPI$ = createEffect(() => {
 //     return this.actions$.pipe(
@@ -136,4 +123,23 @@ export class SubjectsEffect {
 //       })
 //     );
 //   });
+
+private getServerErrorMessage(error: HttpErrorResponse): string {
+  switch (error.status) {
+      case 404: {
+          return `Not Found: ${error.message}`;
+      }
+      case 403: {
+          return `Access Denied: ${error.message}`;
+      }
+      case 500: {
+          return `Internal Server Error: ${error.message}`;
+      }
+      default: {
+          return `Unknown Server Error: ${error.message}`;
+      }
+
+  }
+}
+
 }

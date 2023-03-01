@@ -9,7 +9,7 @@ import { selectSubject } from '../../common/selectors/subjects.selector';
 import { of, pipe } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Appstate } from '../../common/models/appstate';
-import { invokeSubjectsAPI } from '../../../app/common/actions/subjects-effects.action';
+import { invokeSubjectsAPI } from '../../common/actions/subjects.action';
 import { selectAppState } from '../../common/selectors/app.selector';
 
 

@@ -1,13 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse  } from '@angular/common/http';
 import { Subject } from '../../models/subject.model';
-import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { selectAppState } from '../../selectors/app.selector';
 import { Appstate } from '../../models/appstate';
 import { setLoaderSpinnerVisibility } from '../../actions/app.action';
-import { EMPTY, map, mergeMap, switchMap, withLatestFrom, tap,  throwError } from 'rxjs';//catchError,
-import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',

@@ -1,16 +1,16 @@
-import { Action, createAction, props } from '@ngrx/store';
-
-export const GET_LOGIN_DATA ='GET_LOGIN_DATA';
-export const GET_LOGIN_EMAIL ='GET_LOGIN_EMAIL';
-export const GET_LOGIN_PASSWORD ='GET_LOGIN_PASSWORD';
+import { createAction, props } from "@ngrx/store";
+import { Login } from "../models/login.model";
+import { LoginResponce } from "../models/login-responce.model";
 
 
-export class getEmail implements Action {
-    readonly type: string =  GET_LOGIN_EMAIL;
-    constructor(public payload: string) { }
-}
+export const postLoginInfo = createAction(
+    '[API] post login info',
+    props<{ login: Login }>()
+);
 
-export class getPassword implements Action {
-    readonly type: string =  GET_LOGIN_PASSWORD;
-    constructor(public payload: string) { }
-}
+
+export const saveLoginResponce = createAction(
+    '[API] save login responce',
+    props<{ loginResponce: LoginResponce }>()
+);
+

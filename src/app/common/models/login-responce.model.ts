@@ -1,8 +1,4 @@
-export interface Appstate {
-    apiStatus: string;
-    apiResponseMessage: string;
-    currentLanguage: string;
-    loaderSpinnerVisibility: boolean;
+export interface LoginResponce {
     cookie_consent_given: number;
     id: number; 
     jwt_token: string;
@@ -11,4 +7,3 @@ export interface Appstate {
     success: boolean; 
     suspension_reason: string; 
   }
-  

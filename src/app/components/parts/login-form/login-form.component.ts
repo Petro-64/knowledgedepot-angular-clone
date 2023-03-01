@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import * as LoginAct from '../../../common/actions/login.action';
 import { Appstate } from '../../../common/models/appstate';
 import { selectAppState } from '../../../common/selectors/app.selector';
+import { postLoginInfo } from '../../../common/actions/login.action';
 
 
 
@@ -51,7 +52,10 @@ export class LoginFormComponent implements OnInit {
   getErrorMessagePassword() {    if (this.password.hasError('required')) {      return this.translation.mustEnterValue;    }
     return '';
   }
-  onSubmit(){    console.warn(this.loginForm.value);  }
+  onSubmit(){    
+    console.warn(this.loginForm.value);  
+    this.store.dispatch(postLoginInfo({login: {password: this.loginForm.value.password as string, email: this.loginForm.value.email as string}}));//this.loginForm.value
+  }
   //emailOnChange(){    this.store.dispatch(new LoginAct.getEmail(this.email.value as string));  }
 
   //passwordOnChange(){    console.log(this.password.value);    this.store.dispatch(new LoginAct.getPassword(this.password.value as string));  }
