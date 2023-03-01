@@ -5,18 +5,28 @@ import { Observable } from 'rxjs';
 import { messages } from '../../../common/translations/login.translations';
 import { Appstate } from '../../../common/models/appstate';
 import { selectAppState } from '../../../common/selectors/app.selector';
+import { modalAnDialogOrchestra } from '../../../common/services/orchestra/modalAndDialogOrchestra.service';
 
 @Component({
   selector: 'dialog-data-example',
   templateUrl: 'dialog-data-example.html',
   styleUrls: ['dialog-data-example.css']
 })
+
 export class DialogDataExample {
   constructor(
     public dialog: MatDialog,
     private store: Store,
-    private appStore: Store<Appstate>
-    ) {}
+    private appStore: Store<Appstate>,
+    private loginPopUpCloseService: modalAnDialogOrchestra,
+  ) {}
+
+  ngOnInit() { 
+      this.loginPopUpCloseService.loginPopUpCloseSubject.subscribe(()=> {
+        this.dialog.closeAll();
+      });
+      
+  } 
 
 
   openDialog() {
@@ -36,12 +46,6 @@ export class DialogDataExampleDialog implements OnInit {
   subscr: any;// to be able to unsubscribe onDestroy
   translation: any = {};
 
-
-  close(){
-    console.log('close');
-    //this.close();
-    //this.closeAll();
-  }
   appState$ = this.appStore.pipe(select(selectAppState))
   constructor( 
     public dialog: MatDialog,

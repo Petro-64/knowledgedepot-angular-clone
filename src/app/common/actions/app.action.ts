@@ -7,10 +7,10 @@ export const setAPIStatus = createAction(
     props<{apiStatus: Appstate}>()
 );
 
-export const fakeAction = createAction(
-    '[API] success or failure status',
-    props<{currentLanguage: string}>()
-);
+// export const fakeAction = createAction(
+//     '[API] success or failure status',
+//     props<{currentLanguage: string}>()
+// );
 
 export const setLanguage = createAction(
     '[API] set global language',

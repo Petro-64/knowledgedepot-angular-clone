@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SidenavService } from '../../common/services/sidenav/sidenav.service' 
+import { modalAnDialogOrchestra } from '../../common/services/orchestra/modalAndDialogOrchestra.service' 
 
 @Component({
   selector: 'app-navbar',
@@ -7,11 +7,10 @@ import { SidenavService } from '../../common/services/sidenav/sidenav.service'
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  constructor(private sideNavService: SidenavService) {
+  constructor(private sideNavService: modalAnDialogOrchestra) {
 
   }
-
   clickMenu() { 
-    this.sideNavService.toggle();
+    this.sideNavService.toggleSideNav();
   }
 }

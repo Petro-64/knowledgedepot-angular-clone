@@ -6,12 +6,12 @@ import { Appstate } from '../models/appstate';
 import { SubjectService } from '../services/http/getsubjects.service';
 import { LoginService } from '../services/http/postlogin.service';
 import { invokeSubjectsAPI, subjectsFetchAPISuccess } from '../actions/subjects.action';
-import { setAPIStatus, fakeAction } from '../../common/actions/app.action';
 import { postLoginInfo, saveLoginResponce } from '../actions/login.action';
 
 import { selectSubject } from '../selectors/subjects.selector';
 import { setLoaderSpinnerVisibility } from '../actions/app.action';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { modalAnDialogOrchestra } from '../services/orchestra/modalAndDialogOrchestra.service'
 
 @Injectable()
 export class SubjectsEffect {
@@ -20,7 +20,9 @@ export class SubjectsEffect {
     private subjectService: SubjectService,
     private LoginService: LoginService,
     private store: Store,
-    private appStore: Store<Appstate>
+    private appStore: Store<Appstate>,
+    private loginFormResetService: modalAnDialogOrchestra,
+    private loginFormCloseService: modalAnDialogOrchestra    
   ) {}
 
   loadAllBooks$ = createEffect(() =>
@@ -60,6 +62,10 @@ export class SubjectsEffect {
       ofType(postLoginInfo),
       switchMap((action) => {
         return this.LoginService.post(action.login).pipe(
+          tap(() => {
+            this.loginFormResetService.resetLoginForm();
+            this.loginFormCloseService.hideLoginPopUp();
+          }),
           map((data) => {
             this.appStore.dispatch(
               saveLoginResponce({ loginResponce: data })
@@ -74,6 +80,8 @@ export class SubjectsEffect {
                 errorMsg = this.getServerErrorMessage(error);
             }
             this.appStore.dispatch(setLoaderSpinnerVisibility({ loaderSpinnerVisibility: false  }));
+            this.loginFormResetService.resetLoginForm();
+            this.loginFormCloseService.hideLoginPopUp();
             alert(errorMsg);
             return throwError(errorMsg);
           })

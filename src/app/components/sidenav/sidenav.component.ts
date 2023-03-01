@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SidenavService } from '../../common/services/sidenav/sidenav.service';
+import { modalAnDialogOrchestra } from '../../common/services/orchestra/modalAndDialogOrchestra.service';
 import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
@@ -10,7 +10,7 @@ import { MatDrawer } from '@angular/material/sidenav';
 export class SidenavComponent implements OnInit  {
   @ViewChild('drawer', { static: true }) public drawer!: MatDrawer;
 
-  constructor(private sideNavService: SidenavService) { 
+  constructor(private sideNavService: modalAnDialogOrchestra) { 
   }
 
 
@@ -18,10 +18,8 @@ export class SidenavComponent implements OnInit  {
     this.sideNavService.sideNavToggleSubject.subscribe(()=> {
       this.drawer.toggle();
     });
-
     this.drawer.close();
-
-   } 
+  } 
 
    close(){
     this.drawer.close();
