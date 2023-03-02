@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { setAPIStatus, setLanguage, setLoaderSpinnerVisibility } from '../actions/app.action';
+import { setAPIStatus, setLanguage, setLoaderSpinnerVisibility, setSnackBarMessage, setSnackBarMode } from '../actions/app.action';
 import { Appstate } from '../models/appstate';
 import { saveLoginResponce } from '../actions/login.action';
 
@@ -15,6 +15,8 @@ export const initialState: Readonly<Appstate> = {
   role_id: 100,
   success: false, 
   suspension_reason: '', 
+  snackBarMessage: '',
+  snackBarMode: '',
 };
 
 export const appReducer = createReducer(
@@ -42,6 +44,20 @@ export const appReducer = createReducer(
     return {
       ...state,
       ...loginResponce
+    };
+  }),
+
+  on(setSnackBarMessage, (state, { snackBarMessage }) => {
+    return {
+      ...state,
+      snackBarMessage
+    };
+  }),
+
+  on(setSnackBarMode, (state, { snackBarMode }) => {
+    return {
+      ...state,
+      snackBarMode
     };
   }),
 );

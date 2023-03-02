@@ -8,7 +8,8 @@ export class modalAnDialogOrchestra {
   public sideNavToggleSubject: BehaviorSubject<any> = new BehaviorSubject(null);
   public loginPopUpResetSubject: BehaviorSubject<any> = new BehaviorSubject(null);
   public loginPopUpCloseSubject: BehaviorSubject<any> = new BehaviorSubject(null);
-  public showSnackBarSubject: BehaviorSubject<any> = new BehaviorSubject(8);
+  public showSnackBarSubject: BehaviorSubject<any> = new BehaviorSubject(8);// 8 here is for reason that we need to ignore first call to this subscription
+  ///and for next() function we provide different output
 
   constructor() { }
 
@@ -25,8 +26,9 @@ export class modalAnDialogOrchestra {
   }
 
   public showSnackBar() {
-    console.log("showSnackBar in orchestra and value is", this.showSnackBarSubject.value);
-    
     return this.showSnackBarSubject.next(1);
+    // 1 here is for reason that we need to ignore first call to this subscription
+  ///and for next() function we provide different output
+
   }
 }

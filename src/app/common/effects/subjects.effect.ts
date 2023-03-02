@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
 import { EMPTY, map, mergeMap, switchMap, withLatestFrom, tap, catchError, throwError } from 'rxjs';
@@ -9,9 +9,11 @@ import { invokeSubjectsAPI, subjectsFetchAPISuccess } from '../actions/subjects.
 import { postLoginInfo, saveLoginResponce } from '../actions/login.action';
 
 import { selectSubject } from '../selectors/subjects.selector';
-import { setLoaderSpinnerVisibility } from '../actions/app.action';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { modalAnDialogOrchestra } from '../services/orchestra/modalAndDialogOrchestra.service'
+import { setLoaderSpinnerVisibility, setSnackBarMessage, setSnackBarMode } from '../actions/app.action';
+import { HttpErrorResponse } from '@angular/common/http';
+import { modalAnDialogOrchestra } from '../services/orchestra/modalAndDialogOrchestra.service';
+import { selectAppState } from '../selectors/app.selector';
+import { messages } from '../translations/login.translations';
 
 @Injectable()
 export class SubjectsEffect {
@@ -26,7 +28,17 @@ export class SubjectsEffect {
     private showSnackBarService: modalAnDialogOrchestra,
   ) {}
 
-  loadAllBooks$ = createEffect(() =>
+  translation: any = {};
+  appState$ = this.appStore.pipe(select(selectAppState))
+
+  subscrAppState = this.appState$.subscribe(
+    (data) => {
+      this.translation = data.currentLanguage == 'en' ? messages.en : messages.ru;
+    }
+  );
+
+
+  loadSubjectsUser$ = createEffect(() =>
     this.actions$.pipe(
       ofType(invokeSubjectsAPI),
       withLatestFrom(this.store.pipe(select(selectSubject))),
@@ -66,6 +78,9 @@ export class SubjectsEffect {
           tap(() => {
             this.loginFormResetService.resetLoginForm();
             this.loginFormCloseService.hideLoginPopUp();
+            this.appStore.dispatch(setSnackBarMessage({ snackBarMessage: this.translation.success }));
+            this.appStore.dispatch(setSnackBarMode({ snackBarMode: 'success' }));
+            this.showSnackBarService.showSnackBar(); 
           }),
           map((data) => {
             this.appStore.dispatch(
@@ -83,6 +98,8 @@ export class SubjectsEffect {
             this.appStore.dispatch(setLoaderSpinnerVisibility({ loaderSpinnerVisibility: false  }));
             this.loginFormResetService.resetLoginForm();
             this.loginFormCloseService.hideLoginPopUp();
+            this.appStore.dispatch(setSnackBarMessage({ snackBarMessage: this.translation.wrongEmailOrPassword }));
+            this.appStore.dispatch(setSnackBarMode({ snackBarMode: 'error' }));
             this.showSnackBarService.showSnackBar();    
             return throwError(errorMsg);
           })
@@ -90,65 +107,22 @@ export class SubjectsEffect {
       })
     );
   });
-  // petro.niemkov@gmail.com
-  // updateBookAPI$ = createEffect(() => {
-  //   return this.actions$.pipe(
-  //     ofType(invokeUpdateBookAPI),
-  //     switchMap((action) => {
-  //       this.appStore.dispatch(
-  //         setAPIStatus({ apiStatus: { apiResponseMessage: '', apiStatus: '' } })
-  //       );
-  //       return this.booksService.update(action.updateBook).pipe(
-  //         map((data) => {
-  //           this.appStore.dispatch(
-  //             setAPIStatus({
-  //               apiStatus: { apiResponseMessage: '', apiStatus: 'success' },
-  //             })
-  //           );
-  //           return updateBookAPISucess({ updateBook: data });
-  //         })
-  //       );
-  //     })
-  //   );
-  // });
 
-//   deleteBooksAPI$ = createEffect(() => {
-//     return this.actions$.pipe(
-//       ofType(invokeDeleteBookAPI),
-//       switchMap((actions) => {
-//         this.appStore.dispatch(
-//           setAPIStatus({ apiStatus: { apiResponseMessage: '', apiStatus: '' } })
-//         );
-//         return this.booksService.delete(actions.id).pipe(
-//           map(() => {
-//             this.appStore.dispatch(
-//               setAPIStatus({
-//                 apiStatus: { apiResponseMessage: '', apiStatus: 'success' },
-//               })
-//             );
-//             return deleteBookAPISuccess({ id: actions.id });
-//           })
-//         );
-//       })
-//     );
-//   });
+  private getServerErrorMessage(error: HttpErrorResponse): string {
+    switch (error.status) {
+        case 404: {
+            return `Not Found: ${error.message}`;
+        }
+        case 403: {
+            return `Access Denied: ${error.message}`;
+        }
+        case 500: {
+            return `Internal Server Error: ${error.message}`;
+        }
+        default: {
+            return `Unknown Server Error: ${error.message}`;
+        }
 
-private getServerErrorMessage(error: HttpErrorResponse): string {
-  switch (error.status) {
-      case 404: {
-          return `Not Found: ${error.message}`;
-      }
-      case 403: {
-          return `Access Denied: ${error.message}`;
-      }
-      case 500: {
-          return `Internal Server Error: ${error.message}`;
-      }
-      default: {
-          return `Unknown Server Error: ${error.message}`;
-      }
-
+    }
   }
-}
-
 }

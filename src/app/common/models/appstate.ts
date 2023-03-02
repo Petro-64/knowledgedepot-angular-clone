@@ -10,5 +10,7 @@ export interface Appstate {
     role_id: number; 
     success: boolean; 
     suspension_reason: string; 
+    snackBarMessage: string;
+    snackBarMode: string;
   }
   

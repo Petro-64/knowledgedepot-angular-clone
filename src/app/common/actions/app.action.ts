@@ -7,11 +7,6 @@ export const setAPIStatus = createAction(
     props<{apiStatus: Appstate}>()
 );
 
-// export const fakeAction = createAction(
-//     '[API] success or failure status',
-//     props<{currentLanguage: string}>()
-// );
-
 export const setLanguage = createAction(
     '[API] set global language',
     props<{currentLanguage: string}>()
@@ -25,4 +20,14 @@ export const setLoaderSpinnerVisibility = createAction(
 export const setLoginResponceInfo = createAction(
     '[API] set loader spinner visibility',
     props<{setLoginResponceInfo: LoginResponce}>()
+);
+
+export const setSnackBarMessage = createAction(
+    '[API] set snackbar message',
+    props<{snackBarMessage: string}>()
+);
+
+export const setSnackBarMode = createAction(
+    '[API] set snackbar mode',
+    props<{snackBarMode: string}>()
 );

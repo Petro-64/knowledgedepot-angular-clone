@@ -13,7 +13,9 @@ export const messages = {
         signup: "Signup",
         cancel: "Cancel",
         reset: "Reset",
-        mustEnterValue: "You must enter a value"
+        mustEnterValue: "You must enter a value",
+        wrongEmailOrPassword: "Wrong email or password",
+        success: "Success",
     },
     ru: {
         login: "Логин",
@@ -29,6 +31,8 @@ export const messages = {
         signup: "3арегистрироваться",
         cancel: "Отмена",
         reset: "Сброс",
-        mustEnterValue: "Вы должны ввести значение"
+        mustEnterValue: "Вы должны ввести значение",
+        wrongEmailOrPassword: "Ошибка адресa или пароля",
+        success: "Успех",
     }
   };
