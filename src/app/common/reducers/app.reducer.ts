@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { setAPIStatus, setLanguage, setLoaderSpinnerVisibility, setSnackBarMessage, setSnackBarMode } from '../actions/app.action';
+import { setAPIStatus, setLanguage, setLoaderSpinnerVisibility, setSnackBarMessage, setSnackBarMode, logout } from '../actions/app.action';
 import { Appstate } from '../models/appstate';
 import { saveLoginResponce } from '../actions/login.action';
 
@@ -58,6 +58,19 @@ export const appReducer = createReducer(
     return {
       ...state,
       snackBarMode
+    };
+  }),
+
+    on(logout, (state) => {
+    return {
+      ...state,
+      cookie_consent_given: 0,
+      id: 0, 
+      jwt_token: '',
+      name: '',
+      role_id: 100,
+      success: false, 
+      suspension_reason: '', 
     };
   }),
 );

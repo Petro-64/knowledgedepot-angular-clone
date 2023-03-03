@@ -53,7 +53,7 @@ export class SnackbarComponent implements OnInit {
     this._snackBar.openFromComponent(PizzaPartyComponent, {
       duration: this.durationInSeconds * 1000,
       verticalPosition: 'top',
-      panelClass: this.snackBarClass,
+      panelClass: this.snackBarClass
     });
   }
 

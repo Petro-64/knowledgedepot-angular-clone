@@ -12,9 +12,12 @@
   </button>
 
   <mat-menu #menu="matMenu">
-    <dialog-data-example></dialog-data-example>
-    <button mat-menu-item>
-      <span>Sign up</span>
+    <dialog-data-example *ngIf = "!ifLoggedIn"></dialog-data-example>
+    <button mat-menu-item *ngIf = "!ifLoggedIn">
+      <span>{{ translation.signup }}</span>
+    </button>
+    <button mat-menu-item *ngIf = "ifLoggedIn" (click)="logout()">
+      <span>{{ translation.logout }}</span>
     </button>
   </mat-menu>
 </mat-toolbar>

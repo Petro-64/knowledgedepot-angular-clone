@@ -31,3 +31,7 @@ export const setSnackBarMode = createAction(
     '[API] set snackbar mode',
     props<{snackBarMode: string}>()
 );
+
+export const logout = createAction(
+    '[API] logout'
+);

@@ -16,6 +16,7 @@ export const messages = {
         mustEnterValue: "You must enter a value",
         wrongEmailOrPassword: "Wrong email or password",
         success: "Success",
+        logout: "Logout"
     },
     ru: {
         login: "Логин",
@@ -33,6 +34,7 @@ export const messages = {
         reset: "Сброс",
         mustEnterValue: "Вы должны ввести значение",
         wrongEmailOrPassword: "Ошибка адресa или пароля",
-        success: "Успех",
+        success: "Успех авторизации",
+        logout: "Выйти"
     }
   };

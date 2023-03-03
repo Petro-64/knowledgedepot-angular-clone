@@ -52,7 +52,6 @@ export class SubjectsEffect {
             tap(() => {
               this.appStore.dispatch(setLoaderSpinnerVisibility({ loaderSpinnerVisibility: false  }));
             }),
-            map((data) => subjectsFetchAPISuccess({ allSubjects: data })),
             catchError(error => {
               let errorMsg: string;
               if (error.error instanceof ErrorEvent) {
@@ -63,7 +62,10 @@ export class SubjectsEffect {
               this.appStore.dispatch(setLoaderSpinnerVisibility({ loaderSpinnerVisibility: false  }));
               alert(errorMsg);
               return throwError(errorMsg);
-            })
+            }),
+
+            map((data) => subjectsFetchAPISuccess({ allSubjects: data })),
+
           );
       })
     )

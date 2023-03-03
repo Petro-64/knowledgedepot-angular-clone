@@ -21,20 +21,33 @@ export class DialogDataExample {
     private loginPopUpCloseService: modalAnDialogOrchestra,
   ) {}
 
+  subscr: any;// to be able to unsubscribe onDestroy
+  translation: any = {};
+  appState$ = this.appStore.pipe(select(selectAppState))
+
+
   ngOnInit() { 
       this.loginPopUpCloseService.loginPopUpCloseSubject.subscribe(()=> {
         this.dialog.closeAll();
       });
       
+      this.subscr = this.appState$.subscribe(
+        (data) => {
+          this.translation = data.currentLanguage == 'en' ? messages.en : messages.ru;
+        }
+      )
   } 
 
+  ngOnDestroy() {
+    this.subscr.unsubscribe();
+  }
 
   openDialog() {
     this.dialog.open(DialogDataExampleDialog);
   }
-
-
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////
 
 @Component({
   selector: 'dialog-data-example-dialog',
