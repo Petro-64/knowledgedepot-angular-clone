@@ -2,6 +2,7 @@ import { createReducer, on } from '@ngrx/store';
 import { setAPIStatus, setLanguage, setLoaderSpinnerVisibility, setSnackBarMessage, setSnackBarMode, logout } from '../actions/app.action';
 import { Appstate } from '../models/appstate';
 import { saveLoginResponce } from '../actions/login.action';
+import { resultsFetchAPISuccess } from '../actions/results.action'
 
 export const initialState: Readonly<Appstate> = {
   apiResponseMessage: '',
@@ -9,14 +10,26 @@ export const initialState: Readonly<Appstate> = {
   currentLanguage: 'en',
   loaderSpinnerVisibility: false,
   cookie_consent_given: 0,
+
+
+  id: 0, 
+  jwt_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJyb2xlX2lkIjoyLCJsb2dpbl90aW1lc3RhbXAiOjE2Nzg1Nzc5NjR9.TbJImFgGP87ZE0MBkuMb4/1ppThk7QaAcG3tnaZ/o9E=',
+  name: 'Petro',
+  role_id: 2,
+  success: true, 
+ 
+  /*  
   id: 0, 
   jwt_token: '',
-  name: '',
+  name: 'Petro',
   role_id: 100,
-  success: false, 
+  success: false,
+*/
+
   suspension_reason: '', 
   snackBarMessage: '',
   snackBarMode: '',
+  testResults: []
 };
 
 export const appReducer = createReducer(
@@ -61,7 +74,7 @@ export const appReducer = createReducer(
     };
   }),
 
-    on(logout, (state) => {
+  on(logout, (state) => {
     return {
       ...state,
       cookie_consent_given: 0,
@@ -73,5 +86,14 @@ export const appReducer = createReducer(
       suspension_reason: '', 
     };
   }),
+
+  ///
+  on(resultsFetchAPISuccess, (state, {testResults}) => {
+    return {
+      ...state,
+      testResults: testResults
+    };
+  }),
+
 );
 

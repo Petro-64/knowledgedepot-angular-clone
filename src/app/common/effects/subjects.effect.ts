@@ -5,9 +5,10 @@ import { EMPTY, map, mergeMap, switchMap, withLatestFrom, tap, catchError, throw
 import { Appstate } from '../models/appstate';
 import { SubjectService } from '../services/http/getsubjects.service';
 import { LoginService } from '../services/http/postlogin.service';
+import { getResultsService } from '../services/http/getResults.service';
 import { invokeSubjectsAPI, subjectsFetchAPISuccess } from '../actions/subjects.action';
 import { postLoginInfo, saveLoginResponce } from '../actions/login.action';
-
+import { invokeResultsAPI, resultsFetchAPISuccess } from '../actions/results.action';
 import { selectSubject } from '../selectors/subjects.selector';
 import { setLoaderSpinnerVisibility, setSnackBarMessage, setSnackBarMode } from '../actions/app.action';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -26,6 +27,7 @@ export class SubjectsEffect {
     private loginFormResetService: modalAnDialogOrchestra,
     private loginFormCloseService: modalAnDialogOrchestra,
     private showSnackBarService: modalAnDialogOrchestra,
+    private getResultsrService: getResultsService,
   ) {}
 
   translation: any = {};
@@ -104,6 +106,40 @@ export class SubjectsEffect {
             this.appStore.dispatch(setSnackBarMode({ snackBarMode: 'error' }));
             this.showSnackBarService.showSnackBar();    
             return throwError(errorMsg);
+          })
+        );
+      })
+    );
+  });
+
+  getResults$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(invokeResultsAPI),
+      switchMap((action) => {
+        return this.getResultsrService.get().pipe(
+          catchError(error => {
+            let errorMsg: string;
+            if (error.error instanceof ErrorEvent) {
+                errorMsg = `Error: ${error.error.message}`;
+            } else {
+                errorMsg = this.getServerErrorMessage(error);
+            }
+            this.appStore.dispatch(setLoaderSpinnerVisibility({ loaderSpinnerVisibility: false  }));
+            this.appStore.dispatch(setSnackBarMessage({ snackBarMessage: this.translation.wrongEmailOrPassword }));
+            this.appStore.dispatch(setSnackBarMode({ snackBarMode: 'error' }));
+            this.showSnackBarService.showSnackBar();    
+            return throwError(errorMsg);
+          }),
+          tap(() => {
+            this.appStore.dispatch(setSnackBarMessage({ snackBarMessage: this.translation.success }));
+            this.appStore.dispatch(setSnackBarMode({ snackBarMode: 'success' }));
+            this.showSnackBarService.showSnackBar(); 
+          }),
+          map((data) => {
+            this.appStore.dispatch(
+              resultsFetchAPISuccess({ testResults: data })
+            );
+            return  setLoaderSpinnerVisibility({ loaderSpinnerVisibility: false  });
           })
         );
       })

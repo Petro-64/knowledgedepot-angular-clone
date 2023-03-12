@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse  } from '@angular/common/http';
-import { Subject } from '../../models/subject.model';
+import { TestResult } from '../../models/test-result.model';
 import { Store, select } from '@ngrx/store';
 import { Appstate } from '../../models/appstate';
 import { setLoaderSpinnerVisibility } from '../../actions/app.action';
@@ -8,7 +8,7 @@ import { setLoaderSpinnerVisibility } from '../../actions/app.action';
 @Injectable({
   providedIn: 'root',
 })
-export class SubjectService {
+export class getResultsService {
   constructor(
     private http: HttpClient,
     private appStore: Store<Appstate>
@@ -17,7 +17,7 @@ export class SubjectService {
   }
   get() {
     this.appStore.dispatch(      setLoaderSpinnerVisibility({ loaderSpinnerVisibility: true  })    );
-    return this.http.get<Subject[]>('http://127.0.0.1:8000/angular/results').pipe(
-      //catchError(err => this.showError(err))
+    return this.http.get<TestResult[]>('http://127.0.0.1:8000/angular/results').pipe(
     );
   }
+}

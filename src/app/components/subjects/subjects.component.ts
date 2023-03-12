@@ -2,12 +2,8 @@ import { Component, OnInit, OnDestroy  } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Subject } from '../../common/models/subject.model';
-//import { GetSubjectsService } from '../../common/services/http/getsubjects.service';
 import { messages } from '../../common/translations/subjects.translations';
 import { selectSubject } from '../../common/selectors/subjects.selector';
-//import { invokeBooksAPI } from '../../common/actions/subjects-for-effects.action';
-import { of, pipe } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Appstate } from '../../common/models/appstate';
 import { invokeSubjectsAPI } from '../../common/actions/subjects.action';
 import { selectAppState } from '../../common/selectors/app.selector';
@@ -24,7 +20,6 @@ export class SubjectsComponent implements OnInit, OnDestroy  {
   translation: any = {};
 
   constructor( 
-    //private getSubjectsService: GetSubjectsService,
     private store: Store,
     private appStore: Store<Appstate>
   ){  }

@@ -1,3 +1,5 @@
+import { TestResult } from '../models/test-result.model'
+
 export interface Appstate {
     apiStatus: string;
     apiResponseMessage: string;
@@ -12,5 +14,6 @@ export interface Appstate {
     suspension_reason: string; 
     snackBarMessage: string;
     snackBarMode: string;
+    testResults: TestResult[];
   }
   
