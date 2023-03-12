@@ -24,6 +24,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appReducer } from './common/reducers/app.reducer';
 import { SubjectsEffect } from '../app/common/effects/subjects.effect';
 import { subjectReducer } from '../../src/app/common/reducers/subjects.reducer';
+import { resultsReducer } from '../../src/app/common/reducers/results.reducer';
 import { LoaderSpinnerComponent } from './components/parts/loader-spinner/loader-spinner.component';
 import { SnackbarComponent } from './components/parts/snackbar/snackbar.component'; 
 
@@ -52,6 +53,7 @@ import { SnackbarComponent } from './components/parts/snackbar/snackbar.componen
     //StoreModule.forRoot(reducers),
     StoreModule.forRoot({ appState: appReducer }),
     StoreModule.forFeature('subjects', subjectReducer),
+    StoreModule.forFeature('results', resultsReducer),
     HttpClientModule,
     FormsModule, 
     ReactiveFormsModule,

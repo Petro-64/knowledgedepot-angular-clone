@@ -10,21 +10,19 @@ export const initialState: Readonly<Appstate> = {
   currentLanguage: 'en',
   loaderSpinnerVisibility: false,
   cookie_consent_given: 0,
-
-
+/* 
   id: 0, 
-  jwt_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJyb2xlX2lkIjoyLCJsb2dpbl90aW1lc3RhbXAiOjE2Nzg1Nzc5NjR9.TbJImFgGP87ZE0MBkuMb4/1ppThk7QaAcG3tnaZ/o9E=',
+  jwt_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJyb2xlX2lkIjoyLCJsb2dpbl90aW1lc3RhbXAiOjE2Nzg2NTE2NjV9.Ap9XljD8KbZWsy6Wv4g7GW7Akq0VpYEA/+frssSn8jA=',
   name: 'Petro',
   role_id: 2,
   success: true, 
- 
-  /*  
+ */
   id: 0, 
   jwt_token: '',
-  name: 'Petro',
+  name: '',
   role_id: 100,
   success: false,
-*/
+
 
   suspension_reason: '', 
   snackBarMessage: '',
@@ -87,7 +85,6 @@ export const appReducer = createReducer(
     };
   }),
 
-  ///
   on(resultsFetchAPISuccess, (state, {testResults}) => {
     return {
       ...state,

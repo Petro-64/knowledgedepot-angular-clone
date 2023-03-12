@@ -50,8 +50,8 @@ export class SnackbarComponent implements OnInit {
   }
 
   openSnackBar() {
-    this._snackBar.openFromComponent(PizzaPartyComponent, {
-      duration: this.durationInSeconds * 1000,
+    this._snackBar.openFromComponent(SnackBarComponent, {
+      duration: this.durationInSeconds * 500,
       verticalPosition: 'top',
       panelClass: this.snackBarClass
     });
@@ -71,7 +71,7 @@ export class SnackbarComponent implements OnInit {
   templateUrl: 'snack-bar-component-example-snack.html',
   styleUrls: ['snackbar.component.less'],
 })
-export class PizzaPartyComponent implements OnInit{
+export class SnackBarComponent implements OnInit{
   constructor(
     private appStore: Store<Appstate>
   ) {}
