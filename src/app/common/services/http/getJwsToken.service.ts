@@ -18,6 +18,7 @@ export class getJwsToken {
   get() {
     this.subscr = this.appState$.subscribe(
       (data) => {
+        console.log("data = ", data);
         this.JwsToken = data.jwt_token;
       }
     )

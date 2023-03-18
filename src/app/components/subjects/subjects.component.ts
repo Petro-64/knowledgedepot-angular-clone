@@ -17,7 +17,6 @@ import { selectAppState } from '../../common/selectors/app.selector';
 
 export class SubjectsComponent implements OnInit, OnDestroy  {
   subscr: any;// to be able to unsubscribe onDestroy
-  subscrSubj: any;// to be able to unsubscribe onDestroy
   translation: any = {};
 
   constructor( 
@@ -39,7 +38,6 @@ export class SubjectsComponent implements OnInit, OnDestroy  {
 
   ngOnDestroy() {
     this.subscr.unsubscribe();
-    this.subscrSubj.unsubscribe();
   }
 
   displayedColumns: string[] = ['id', 'name', 'created_at', 'updated_at', 'questions_number'];
