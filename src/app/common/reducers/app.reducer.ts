@@ -10,13 +10,13 @@ export const initialState: Readonly<Appstate> = {
   currentLanguage: 'en',
   loaderSpinnerVisibility: false,
   cookie_consent_given: 0,
-/* 
+  /* 
   id: 0, 
-  jwt_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJyb2xlX2lkIjoyLCJsb2dpbl90aW1lc3RhbXAiOjE2NzkxNzA3ODh9.E5ngTuHyLkozuH7fn33GtFpHaNgHJWqQ7Kp4JSQ9eXk=',
+  jwt_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJyb2xlX2lkIjoyLCJsb2dpbl90aW1lc3RhbXAiOjE2NzkyNDE1MjF9.ydnGbLEIGr3Tyw2RmyiWtL6VLFnHyzm3aZPdQPc9cjA=',
   name: 'Petro',
   role_id: 2,
   success: true, 
- */
+  */
   id: 0, 
   jwt_token: '',
   name: '',

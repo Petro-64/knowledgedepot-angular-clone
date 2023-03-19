@@ -5,6 +5,7 @@ import { messages } from '../../common/translations/login.translations';
 import { Appstate } from '../../common/models/appstate';
 import { selectAppState } from '../../common/selectors/app.selector'; 
 import { logout } from '../../common/actions/app.action';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -12,11 +13,7 @@ import { logout } from '../../common/actions/app.action';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  constructor(
-    private sideNavService: modalAnDialogOrchestra,
-    private store: Store,
-    private appStore: Store<Appstate>
-    ) {
+  constructor( private sideNavService: modalAnDialogOrchestra,  private store: Store, private appStore: Store<Appstate>, private router: Router ) {
 
   }
   subscr: any;// to be able to unsubscribe onDestroy
@@ -37,6 +34,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout(){
+    this.router.navigate(['/']);
     this.store.dispatch(logout());
   }
 

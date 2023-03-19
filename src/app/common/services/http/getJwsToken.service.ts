@@ -12,7 +12,7 @@ export class getJwsToken {
   constructor( private appStore: Store<Appstate>) {}
 
   appState$ = this.appStore.pipe(select(selectAppState))
-  JwsToken = '';
+  JwsToken: string = '';
   subscr: any;// to be able to unsubscribe onDestroy
 
   get() {

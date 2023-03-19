@@ -27,6 +27,9 @@ import { subjectReducer } from '../../src/app/common/reducers/subjects.reducer';
 import { resultsReducer } from '../../src/app/common/reducers/results.reducer';
 import { LoaderSpinnerComponent } from './components/parts/loader-spinner/loader-spinner.component';
 import { SnackbarComponent } from './components/parts/snackbar/snackbar.component'; 
+import { AuthGuard } from './common/services/auth-guard.service';
+import { ifAuthenticated } from './common/services/ifAuthenticated.service';
+
 
 
 @NgModule({
@@ -62,7 +65,7 @@ import { SnackbarComponent } from './components/parts/snackbar/snackbar.componen
     //EffectsModule.forRoot([SubjectsEffectTs]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
-  providers: [],//GetSubjectsService
+  providers: [AuthGuard, ifAuthenticated],//GetSubjectsService
   bootstrap: [AppComponent], 
 })
 export class AppModule { }
