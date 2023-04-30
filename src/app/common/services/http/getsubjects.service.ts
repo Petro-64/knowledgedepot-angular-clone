@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse  } from '@angular/common/http';
-import { Subject } from '../../models/subject.model';
+import { SubjectModel } from '../../models/subject.model';
 import { Store, select } from '@ngrx/store';
 import { Appstate } from '../../models/appstate';
 import { setLoaderSpinnerVisibility } from '../../actions/app.action';
@@ -17,7 +17,7 @@ export class SubjectService {
   }
   get() {
     this.appStore.dispatch(      setLoaderSpinnerVisibility({ loaderSpinnerVisibility: true  })    );
-    return this.http.get<Subject[]>('http://127.0.0.1:8000/angular/getsubjectsuser').pipe(
+    return this.http.get<SubjectModel[]>('http://127.0.0.1:8000/angular/getsubjectsuser').pipe(
       //catchError(err => this.showError(err))
     );
   }

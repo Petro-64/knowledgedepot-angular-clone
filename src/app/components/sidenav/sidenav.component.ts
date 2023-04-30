@@ -3,7 +3,7 @@ import { modalAnDialogOrchestra } from '../../common/services/orchestra/modalAnd
 import { MatDrawer } from '@angular/material/sidenav';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Subject } from '../../common/models/subject.model';
+import { SubjectModel } from '../../common/models/subject.model';
 //import { GetSubjectsService } from '../../common/services/http/getsubjects.service';
 import { messages } from '../../common/translations/subjects.translations';
 import { selectSubject } from '../../common/selectors/subjects.selector';

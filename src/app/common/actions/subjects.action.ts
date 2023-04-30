@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Subject } from '../models/subject.model';
+import { SubjectModel } from '../models/subject.model';
 
 export const invokeSubjectsAPI = createAction(
   '[Books API] Invoke Subjects Fetch API'
@@ -7,6 +7,6 @@ export const invokeSubjectsAPI = createAction(
 
 export const subjectsFetchAPISuccess = createAction(
   '[Books API] Fetch API Success',
-  props<{ allSubjects: Subject[] }>()
+  props<{ allSubjects: SubjectModel[] }>()
 );
 

@@ -40,39 +40,62 @@ export class SubjectsEffect {
   );
 
 
-  loadSubjectsUser$ = createEffect(() =>
-    this.actions$.pipe(
+  // loadSubjectsUser$ = createEffect(() =>
+  //   this.actions$.pipe(
+  //     ofType(invokeSubjectsAPI),
+  //     withLatestFrom(this.store.pipe(select(selectSubject))),
+  //     mergeMap(([, subjectsFromStore]) => {
+  //       if (subjectsFromStore.length > 0) {
+  //         return EMPTY;
+  //       }
+  //       return this.subjectService
+  //         .get()
+  //         .pipe(
+  //           tap(() => {
+  //             this.appStore.dispatch(setLoaderSpinnerVisibility({ loaderSpinnerVisibility: false  }));
+  //           }),
+  //           catchError(error => {
+  //             let errorMsg: string;
+  //             if (error.error instanceof ErrorEvent) {
+  //                 errorMsg = `Error: ${error.error.message}`;
+  //             } else {
+  //                 errorMsg = this.getServerErrorMessage(error);
+  //             }
+  //             this.appStore.dispatch(setLoaderSpinnerVisibility({ loaderSpinnerVisibility: false  }));
+  //             alert(errorMsg);
+  //             return throwError(errorMsg);
+  //           }),
+
+  //           map((data) => subjectsFetchAPISuccess({ allSubjects: data })),
+
+  //         );
+  //     })
+  //   )
+  // );
+
+  loadSubjectsUser$ = createEffect(() => {
+    return this.actions$.pipe(
       ofType(invokeSubjectsAPI),
-      withLatestFrom(this.store.pipe(select(selectSubject))),
-      mergeMap(([, subjectsFromStore]) => {
-        if (subjectsFromStore.length > 0) {
-          return EMPTY;
-        }
-        return this.subjectService
-          .get()
-          .pipe(
-            tap(() => {
-              this.appStore.dispatch(setLoaderSpinnerVisibility({ loaderSpinnerVisibility: false  }));
-            }),
-            catchError(error => {
-              let errorMsg: string;
-              if (error.error instanceof ErrorEvent) {
-                  errorMsg = `Error: ${error.error.message}`;
-              } else {
-                  errorMsg = this.getServerErrorMessage(error);
-              }
-              this.appStore.dispatch(setLoaderSpinnerVisibility({ loaderSpinnerVisibility: false  }));
-              alert(errorMsg);
-              return throwError(errorMsg);
-            }),
-
-            map((data) => subjectsFetchAPISuccess({ allSubjects: data })),
-
-          );
+      switchMap((action) => {
+        return this.subjectService.get().pipe(
+          tap(() => {
+            this.appStore.dispatch(setLoaderSpinnerVisibility({ loaderSpinnerVisibility: false  }));
+          }),
+          map((data) => subjectsFetchAPISuccess({ allSubjects: data })),
+          catchError(error => {
+            let errorMsg: string;
+            if (error.error instanceof ErrorEvent) {
+                errorMsg = `Error: ${error.error.message}`;
+            } else {
+                errorMsg = this.getServerErrorMessage(error);
+            }
+            this.appStore.dispatch(setLoaderSpinnerVisibility({ loaderSpinnerVisibility: false  }));    
+            return throwError(errorMsg);
+          })
+        );
       })
-    )
-  );
-
+    );
+  });
 
   login$ = createEffect(() => {
     return this.actions$.pipe(
@@ -87,9 +110,19 @@ export class SubjectsEffect {
             this.showSnackBarService.showSnackBar(); 
           }),
           map((data) => {
-            this.appStore.dispatch(
-              saveLoginResponce({ loginResponce: data })
-            );
+            if(data.success){
+              this.appStore.dispatch(
+                saveLoginResponce({ loginResponce: data })
+              ); 
+            } else {
+              ///this.appStore.dispatch(setLoaderSpinnerVisibility({ loaderSpinnerVisibility: false  }));
+              this.loginFormResetService.resetLoginForm();
+              this.loginFormCloseService.hideLoginPopUp();
+              this.appStore.dispatch(setSnackBarMessage({ snackBarMessage: this.translation.wrongEmailOrPassword }));
+              this.appStore.dispatch(setSnackBarMode({ snackBarMode: 'error' }));
+              this.showSnackBarService.showSnackBar();
+            }
+
             return  setLoaderSpinnerVisibility({ loaderSpinnerVisibility: false  });
           }),
           catchError(error => {

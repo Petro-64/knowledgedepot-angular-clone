@@ -1,0 +1,19 @@
+Looking for git in: git
+Using git 2.17.1 from git
+> git rev-parse --git-dir
+Open repository: /var/www/laravelknowlegdedepot
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git show --textconv :app/Http/Controllers/AngularController.php
+> git ls-files --stage -- /var/www/laravelknowlegdedepot/app/Http/Controllers/AngularController.php
+> git cat-file -s f93f59cef53798bb5b4b283138605ea29e18b05e
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show --textconv :toDoList.txt
+> git ls-files --stage -- /var/www/laravelknowlegdedepot/toDoList.txt
+> git cat-file -s 5893076b3cbd0046a325a9e00377dc889d5d4822

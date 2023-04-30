@@ -1,0 +1,57 @@
+[2023-04-04 14:22:37.921] [exthost] [info] extension host started
+[2023-04-04 14:22:38.237] [exthost] [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication {"startup":false,"extensionId":{"value":"vscode.microsoft-authentication","_lower":"vscode.microsoft-authentication"},"activationEvent":"onAuthenticationRequest:microsoft"}
+[2023-04-04 14:22:38.243] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/microsoft-authentication/dist/extension.js
+[2023-04-04 14:22:38.289] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"extensionId":{"value":"vscode.debug-auto-launch","_lower":"vscode.debug-auto-launch"},"activationEvent":"*"}
+[2023-04-04 14:22:38.292] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/debug-auto-launch/dist/extension
+[2023-04-04 14:22:38.302] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"extensionId":{"value":"vscode.github","_lower":"vscode.github"},"activationEvent":"*"}
+[2023-04-04 14:22:38.303] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/git/dist/main
+[2023-04-04 14:22:38.531] [exthost] [info] ExtensionService#_doActivateExtension vscode.github {"startup":true,"extensionId":{"value":"vscode.github","_lower":"vscode.github"},"activationEvent":"*"}
+[2023-04-04 14:22:38.531] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/github/dist/extension.js
+[2023-04-04 14:22:38.787] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode.js-debug {"startup":false,"extensionId":{"value":"ms-vscode.js-debug","_lower":"ms-vscode.js-debug"},"activationEvent":"onCommand:extension.js-debug.clearAutoAttachVariables"}
+[2023-04-04 14:22:38.787] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/ms-vscode.js-debug/src/extension.js
+[2023-04-04 14:22:39.137] [exthost] [info] eager extensions activated
+[2023-04-04 14:22:39.151] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":false,"extensionId":{"value":"vscode.emmet","_lower":"vscode.emmet"},"activationEvent":"onStartupFinished"}
+[2023-04-04 14:22:39.152] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain
+[2023-04-04 14:22:39.157] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":false,"extensionId":{"value":"vscode.merge-conflict","_lower":"vscode.merge-conflict"},"activationEvent":"onStartupFinished"}
+[2023-04-04 14:22:39.163] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/merge-conflict/dist/mergeConflictMain
+[2023-04-04 14:22:39.165] [exthost] [info] ExtensionService#_doActivateExtension vscode.testing-editor-contributions {"startup":false,"extensionId":{"value":"vscode.testing-editor-contributions","_lower":"vscode.testing-editor-contributions"},"activationEvent":"onStartupFinished"}
+[2023-04-04 14:22:39.165] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/testing-editor-contributions/dist/extension.js
+[2023-04-04 14:22:39.239] [exthost] [info] ExtensionService#_doActivateExtension vscode.github-authentication {"startup":false,"extensionId":{"value":"vscode.github-authentication","_lower":"vscode.github-authentication"},"activationEvent":"onAuthenticationRequest:github"}
+[2023-04-04 14:22:39.240] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/github-authentication/dist/extension.js
+[2023-04-04 14:23:13.680] [exthost] [info] extension host terminating: received terminate message from renderer
+[2023-04-04 14:23:14.688] [exthost] [info] exiting with code 0
+[2023-04-04 14:23:18.026] [exthost] [info] extension host started
+[2023-04-04 14:23:18.292] [exthost] [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication {"startup":false,"extensionId":{"value":"vscode.microsoft-authentication","_lower":"vscode.microsoft-authentication"},"activationEvent":"onAuthenticationRequest:microsoft"}
+[2023-04-04 14:23:18.292] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/microsoft-authentication/dist/extension.js
+[2023-04-04 14:23:18.309] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"extensionId":{"value":"vscode.debug-auto-launch","_lower":"vscode.debug-auto-launch"},"activationEvent":"*"}
+[2023-04-04 14:23:18.324] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/debug-auto-launch/dist/extension
+[2023-04-04 14:23:18.336] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"extensionId":{"value":"vscode.github","_lower":"vscode.github"},"activationEvent":"*"}
+[2023-04-04 14:23:18.342] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/git/dist/main
+[2023-04-04 14:23:18.372] [exthost] [info] ExtensionService#_doActivateExtension vscode.npm {"startup":true,"extensionId":{"value":"vscode.npm","_lower":"vscode.npm"},"activationEvent":"workspaceContains:package.json"}
+[2023-04-04 14:23:18.372] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/npm/dist/npmMain
+[2023-04-04 14:23:19.153] [exthost] [info] ExtensionService#_doActivateExtension vscode.github {"startup":true,"extensionId":{"value":"vscode.github","_lower":"vscode.github"},"activationEvent":"*"}
+[2023-04-04 14:23:19.154] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/github/dist/extension.js
+[2023-04-04 14:23:19.469] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 448
+[2023-04-04 14:23:20.586] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode.js-debug {"startup":false,"extensionId":{"value":"ms-vscode.js-debug","_lower":"ms-vscode.js-debug"},"activationEvent":"onCommand:extension.js-debug.clearAutoAttachVariables"}
+[2023-04-04 14:23:20.586] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/ms-vscode.js-debug/src/extension.js
+[2023-04-04 14:23:20.839] [exthost] [info] eager extensions activated
+[2023-04-04 14:23:21.034] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":false,"extensionId":{"value":"vscode.emmet","_lower":"vscode.emmet"},"activationEvent":"onStartupFinished"}
+[2023-04-04 14:23:21.034] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain
+[2023-04-04 14:23:21.038] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":false,"extensionId":{"value":"vscode.merge-conflict","_lower":"vscode.merge-conflict"},"activationEvent":"onStartupFinished"}
+[2023-04-04 14:23:21.038] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/merge-conflict/dist/mergeConflictMain
+[2023-04-04 14:23:21.039] [exthost] [info] ExtensionService#_doActivateExtension vscode.testing-editor-contributions {"startup":false,"extensionId":{"value":"vscode.testing-editor-contributions","_lower":"vscode.testing-editor-contributions"},"activationEvent":"onStartupFinished"}
+[2023-04-04 14:23:21.039] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/testing-editor-contributions/dist/extension.js
+[2023-04-04 14:23:21.128] [exthost] [info] ExtensionService#_doActivateExtension vscode.github-authentication {"startup":false,"extensionId":{"value":"vscode.github-authentication","_lower":"vscode.github-authentication"},"activationEvent":"onAuthenticationRequest:github"}
+[2023-04-04 14:23:21.145] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/github-authentication/dist/extension.js
+[2023-04-04 14:47:56.599] [exthost] [info] ExtensionService#_doActivateExtension vscode.typescript-language-features {"startup":false,"extensionId":{"value":"vscode.typescript-language-features","_lower":"vscode.typescript-language-features"},"activationEvent":"onLanguage:javascript"}
+[2023-04-04 14:47:56.599] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/typescript-language-features/dist/extension
+[2023-04-04 14:48:41.138] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 448
+[2023-04-04 14:54:05.566] [exthost] [info] ExtensionService#_doActivateExtension vscode.extension-editing {"startup":false,"extensionId":{"value":"vscode.extension-editing","_lower":"vscode.extension-editing"},"activationEvent":"onLanguage:typescript"}
+[2023-04-04 14:54:05.566] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/extension-editing/dist/extensionEditingMain
+[2023-04-04 14:54:05.576] [exthost] [info] ExtensionService#_doActivateExtension Angular.ng-template {"startup":false,"extensionId":{"value":"Angular.ng-template","_lower":"angular.ng-template"},"activationEvent":"onLanguage:typescript"}
+[2023-04-04 14:54:05.576] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/petro/.vscode/extensions/angular.ng-template-11.2.14/index
+[2023-04-04 14:54:39.142] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 449
+[2023-04-04 14:57:35.819] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 449
+[2023-04-04 14:58:41.271] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 450
+[2023-04-04 14:59:03.227] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 450
+[2023-04-04 15:07:00.113] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 450

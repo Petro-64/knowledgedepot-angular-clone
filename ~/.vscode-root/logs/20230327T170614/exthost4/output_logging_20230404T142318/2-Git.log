@@ -1,0 +1,78 @@
+Looking for git in: git
+Using git 2.17.1 from git
+> git rev-parse --git-dir
+Open repository: /home/petro/Desktop/reactKnowlegde/reactknowledgedepot
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git check-ignore -v -z --stdin
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show --textconv :src/reducers/loginsignup.js
+> git ls-files --stage -- /home/petro/Desktop/reactKnowlegde/reactknowledgedepot/src/reducers/loginsignup.js
+> git cat-file -s 9df1c6a10dde27f2927194fc46289be1224c8dca
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git show --textconv :src/components/Mistakes.js
+> git ls-files --stage -- /home/petro/Desktop/reactKnowlegde/reactknowledgedepot/src/components/Mistakes.js
+> git cat-file -s f02ee83a1c81ce2ce87e0cf6ac2aa32027c6da2b
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git show --textconv :src/translations/Mistakes.js
+> git ls-files --stage -- /home/petro/Desktop/reactKnowlegde/reactknowledgedepot/src/translations/Mistakes.js
+> git cat-file -s ec6a109e82e3e32a6e9c44e01c4b0b1072d00e9b
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :src/components/Mistakes.js
+> git ls-files --stage -- /home/petro/Desktop/reactKnowlegde/reactknowledgedepot/src/components/Mistakes.js
+> git cat-file -s f02ee83a1c81ce2ce87e0cf6ac2aa32027c6da2b
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :src/translations/Mistakes.js
+> git ls-files --stage -- /home/petro/Desktop/reactKnowlegde/reactknowledgedepot/src/translations/Mistakes.js
+> git cat-file -s ec6a109e82e3e32a6e9c44e01c4b0b1072d00e9b
+> git show --textconv :src/components/Mistakes.js
+> git ls-files --stage -- /home/petro/Desktop/reactKnowlegde/reactknowledgedepot/src/components/Mistakes.js
+> git cat-file -s f02ee83a1c81ce2ce87e0cf6ac2aa32027c6da2b
+> git show --textconv :src/translations/Mistakes.js
+> git ls-files --stage -- /home/petro/Desktop/reactKnowlegde/reactknowledgedepot/src/translations/Mistakes.js
+> git cat-file -s ec6a109e82e3e32a6e9c44e01c4b0b1072d00e9b
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git show --textconv :src/components/formelements/Pagination.js
+> git ls-files --stage -- /home/petro/Desktop/reactKnowlegde/reactknowledgedepot/src/components/formelements/Pagination.js
+> git cat-file -s 740a5452580dd370d8f0767f2c597b830b470a67

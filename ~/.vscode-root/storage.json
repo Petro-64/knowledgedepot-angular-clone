@@ -3,10 +3,7 @@
     "openedPathsList": {
         "entries": [
             {
-                "folderUri": "file:///home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone"
-            },
-            {
-                "folderUri": "file:///var/www/laravelknowlegdedepot"
+                "folderUri": "file:///home/petro/Desktop/reactKnowlegde/reactknowledgedepot"
             }
         ]
     },
@@ -44,7 +41,8 @@
                             "items": [
                                 {
                                     "id": "workbench.action.reopenClosedEditor",
-                                    "label": "&&Reopen Closed Editor"
+                                    "label": "&&Reopen Closed Editor",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -53,24 +51,13 @@
                                     "id": "openRecentFolder",
                                     "uri": {
                                         "$mid": 1,
-                                        "fsPath": "/home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone",
-                                        "external": "file:///home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone",
-                                        "path": "/home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone",
+                                        "fsPath": "/home/petro/Desktop/reactKnowlegde/reactknowledgedepot",
+                                        "external": "file:///home/petro/Desktop/reactKnowlegde/reactknowledgedepot",
+                                        "path": "/home/petro/Desktop/reactKnowlegde/reactknowledgedepot",
                                         "scheme": "file"
                                     },
                                     "enabled": true,
-                                    "label": "~/Desktop/angularKnowledge/knowledgedepot-angular-clone"
-                                },
-                                {
-                                    "id": "openRecentFolder",
-                                    "uri": {
-                                        "$mid": 1,
-                                        "external": "file:///var/www/laravelknowlegdedepot",
-                                        "path": "/var/www/laravelknowlegdedepot",
-                                        "scheme": "file"
-                                    },
-                                    "enabled": true,
-                                    "label": "/var/www/laravelknowlegdedepot"
+                                    "label": "~/Desktop/reactKnowlegde/reactknowledgedepot"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -564,8 +551,7 @@
                     },
                     {
                         "id": "editor.action.toggleMinimap",
-                        "label": "Show &&Minimap",
-                        "checked": true
+                        "label": "Show &&Minimap"
                     },
                     {
                         "id": "breadcrumbs.toggle",
@@ -820,7 +806,8 @@
                     },
                     {
                         "id": "workbench.action.debug.configure",
-                        "label": "Open &&Configurations"
+                        "label": "Open &&Configurations",
+                        "enabled": false
                     },
                     {
                         "id": "debug.addConfiguration",
@@ -1476,17 +1463,40 @@
     "themeBackground": "#1e1e1e",
     "windowsState": {
         "lastActiveWindow": {
-            "folder": "file:///home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone",
-            "backupPath": "/home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/~/.vscode-root/Backups/fcb92b2caf429fbbc9eee4482f68c7eb",
+            "folder": "file:///home/petro/Desktop/reactKnowlegde/reactknowledgedepot",
+            "backupPath": "/home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/~/.vscode-root/Backups/645d17e661835b45e71e68c44fa4afa0",
             "uiState": {
                 "mode": 1,
-                "x": 233,
-                "y": 147,
-                "width": 2031,
-                "height": 1541
+                "x": 83,
+                "y": 75,
+                "width": 1936,
+                "height": 1527
             }
         },
-        "openedWindows": []
+        "openedWindows": [
+            {
+                "folder": "file:///var/www/laravelknowlegdedepot",
+                "backupPath": "/home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/~/.vscode-root/Backups/89b1264b74870be9080ea89710dfefe1",
+                "uiState": {
+                    "mode": 1,
+                    "x": 107,
+                    "y": 936,
+                    "width": 1941,
+                    "height": 1088
+                }
+            },
+            {
+                "folder": "file:///home/petro/Desktop/reactKnowlegde/reactknowledgedepot",
+                "backupPath": "/home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/~/.vscode-root/Backups/645d17e661835b45e71e68c44fa4afa0",
+                "uiState": {
+                    "mode": 1,
+                    "x": 83,
+                    "y": 75,
+                    "width": 1936,
+                    "height": 1527
+                }
+            }
+        ]
     },
-    "pickerWorkingDir": "/home/petro/Desktop/angularKnowledge"
+    "pickerWorkingDir": "/home/petro/Desktop/reactKnowlegde"
 }

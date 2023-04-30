@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { Subject } from '../models/subject.model';
+import { SubjectModel } from '../models/subject.model';
 
-export const selectSubject = createFeatureSelector<Subject[]>('subjects');
+export const selectSubject = createFeatureSelector<SubjectModel[]>('subjects');
 

@@ -1,8 +1,8 @@
 import { createReducer, on } from '@ngrx/store';
-import { Subject } from '../models/subject.model';
+import { SubjectModel } from '../models/subject.model';
 import { invokeSubjectsAPI, subjectsFetchAPISuccess} from '../actions/subjects.action';
 
-export const initialState: ReadonlyArray<Subject> = [];
+export const initialState: ReadonlyArray<SubjectModel> = [];
 
 export const subjectReducer = createReducer(
   initialState,

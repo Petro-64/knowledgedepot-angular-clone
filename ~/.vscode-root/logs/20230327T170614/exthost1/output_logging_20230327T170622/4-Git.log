@@ -1,0 +1,131 @@
+Looking for git in: git
+Using git 2.17.1 from git
+> git rev-parse --git-dir
+Open repository: /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git show --textconv :src/app/common/effects/subjects.effect.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/common/effects/subjects.effect.ts
+> git cat-file -s 903c6720b4cefe65714548009bb4debd9fb82e28
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :src/app/components/navbar/navbar.component.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/components/navbar/navbar.component.ts
+> git cat-file -s 9dc93c753849689b603b483987f27e095174567d
+> git show --textconv :src/app/common/effects/subjects.effect.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/common/effects/subjects.effect.ts
+> git cat-file -s 903c6720b4cefe65714548009bb4debd9fb82e28
+> git check-ignore -v -z --stdin
+> git show --textconv :src/app/components/tests/tests.component.spec.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/components/tests/tests.component.spec.ts
+> git cat-file -s 14ab58eda90d3470780f05a0a81ef5d0bc47bdeb
+> git show --textconv :src/app/common/effects/subjects.effect.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/common/effects/subjects.effect.ts
+> git cat-file -s 903c6720b4cefe65714548009bb4debd9fb82e28
+> git show --textconv :src/app/components/tests/tests.component.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/components/tests/tests.component.ts
+> git cat-file -s 6493e5c2af0efadd97db5365188852d6f2382a76
+> git show --textconv :src/app/common/effects/subjects.effect.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/common/effects/subjects.effect.ts
+> git cat-file -s 903c6720b4cefe65714548009bb4debd9fb82e28
+> git show --textconv :src/app/components/tests/tests.component.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/components/tests/tests.component.ts
+> git cat-file -s 6493e5c2af0efadd97db5365188852d6f2382a76
+> git show --textconv :src/app/components/results/results.component.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/components/results/results.component.ts
+> git cat-file -s 4ec79b0540d319ca1951b6cd6baf5108375794aa
+> git show --textconv :src/app/components/tests/tests.component.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/components/tests/tests.component.ts
+> git cat-file -s 6493e5c2af0efadd97db5365188852d6f2382a76
+> git show --textconv :src/app/common/effects/subjects.effect.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/common/effects/subjects.effect.ts
+> git cat-file -s 903c6720b4cefe65714548009bb4debd9fb82e28
+> git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%B -z -n21 -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/common/effects/subjects.effect.ts
+> git check-ignore -v -z --stdin
+> git show --textconv :src/app/components/subjects/subjects.component.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/components/subjects/subjects.component.ts
+> git cat-file -s c53a0781f9fe7e30099c6e791f4bffb73b0a6aa1
+> git show --textconv :src/app/common/effects/subjects.effect.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/common/effects/subjects.effect.ts
+> git cat-file -s 903c6720b4cefe65714548009bb4debd9fb82e28
+> git show --textconv :src/app/components/subjects/subjects.component.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/components/subjects/subjects.component.ts
+> git cat-file -s c53a0781f9fe7e30099c6e791f4bffb73b0a6aa1
+> git show --textconv :src/app/components/tests/tests.component.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/components/tests/tests.component.ts
+> git cat-file -s 6493e5c2af0efadd97db5365188852d6f2382a76
+> git show --textconv :src/app/components/subjects/subjects.component.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/components/subjects/subjects.component.ts
+> git cat-file -s c53a0781f9fe7e30099c6e791f4bffb73b0a6aa1
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%B -z -n21 -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/components/subjects/subjects.component.ts
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show --textconv :src/app/common/services/http/getJwsToken.service.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/common/services/http/getJwsToken.service.ts
+> git cat-file -s ed7f7e87bd8f4b755ef0e455950ce82bd6b731c4
+> git show --textconv :src/app/components/subjects/subjects.component.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/components/subjects/subjects.component.ts
+> git cat-file -s c53a0781f9fe7e30099c6e791f4bffb73b0a6aa1
+> git show --textconv :src/app/common/effects/subjects.effect.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/common/effects/subjects.effect.ts
+> git cat-file -s 903c6720b4cefe65714548009bb4debd9fb82e28
+> git show --textconv :src/app/components/subjects/subjects.component.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/components/subjects/subjects.component.ts
+> git cat-file -s c53a0781f9fe7e30099c6e791f4bffb73b0a6aa1
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show --textconv :src/app/common/services/ifAuthenticated.service.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/common/services/ifAuthenticated.service.ts
+> git cat-file -s 83c6c6e8523db7801350ed6c4c737cec399ccf27
+> git show --textconv :src/app/components/subjects/subjects.component.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/components/subjects/subjects.component.ts
+> git cat-file -s c53a0781f9fe7e30099c6e791f4bffb73b0a6aa1
+> git show --textconv :src/app/app-routing.module.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/app-routing.module.ts
+> git cat-file -s 85ad567dc46188df5c4f819921c80da70f8f906f
+> git show --textconv :src/app/components/subjects/subjects.component.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/components/subjects/subjects.component.ts
+> git cat-file -s c53a0781f9fe7e30099c6e791f4bffb73b0a6aa1
+> git show --textconv :src/app/components/results/results.component.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/components/results/results.component.ts
+> git cat-file -s 4ec79b0540d319ca1951b6cd6baf5108375794aa
+> git show --textconv :src/app/components/subjects/subjects.component.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/components/subjects/subjects.component.ts
+> git cat-file -s c53a0781f9fe7e30099c6e791f4bffb73b0a6aa1
+> git show --textconv :src/app/components/parts/login-form/login-form.component.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/components/parts/login-form/login-form.component.ts
+> git cat-file -s 49255d99f5fbaf79a165f04e65d4956f529812a4
+> git show --textconv :src/app/components/subjects/subjects.component.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/components/subjects/subjects.component.ts
+> git cat-file -s c53a0781f9fe7e30099c6e791f4bffb73b0a6aa1
+> git check-ignore -v -z --stdin
+> git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%B -z -n21 -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/components/subjects/subjects.component.ts
+> git show --textconv :src/app/common/effects/subjects.effect.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/common/effects/subjects.effect.ts
+> git cat-file -s 903c6720b4cefe65714548009bb4debd9fb82e28
+> git show --textconv :src/app/components/parts/login-form/login-form.component.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/components/parts/login-form/login-form.component.ts
+> git cat-file -s 49255d99f5fbaf79a165f04e65d4956f529812a4
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show --textconv :src/app/common/reducers/app.reducer.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/common/reducers/app.reducer.ts
+> git cat-file -s bc1d3bbd4b11cac4b581ad33ea1874334b4d54d1
+> git show --textconv :src/app/common/effects/subjects.effect.ts
+> git ls-files --stage -- /home/petro/Desktop/angularKnowledge/knowledgedepot-angular-clone/src/app/common/effects/subjects.effect.ts
+> git cat-file -s 903c6720b4cefe65714548009bb4debd9fb82e28
